@@ -8,6 +8,9 @@ str
 value = 'JaCK waldon'
 
 converted = value.capitalize()
+lower = converted.lower()
+
+alternate = value.capitalize().lower()
 
 print(value, converted)
 print(value.casefold())

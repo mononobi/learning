@@ -89,7 +89,7 @@ def sort_names1(a, b):
         print(index+1, b[index])
 
 #test
-print(sort_names1(first_names, last_names))
+sort_names1(first_names, last_names)
 
 
 def sort_names2(a, b):
