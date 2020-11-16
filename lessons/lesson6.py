@@ -142,6 +142,9 @@ t2 = tuple()
 # immutable types: value type: tuple, str, int
 # mutable types: reference type: list, dict, set
 
+# mutable types could be changed in-place.
+# immutable type could not be changed in-place.
+
 a = (1, 2, 3)
 b = a + (4,)
 print(b)
