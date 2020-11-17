@@ -15,6 +15,8 @@
    (do not use loop for this, search the web if needed)
 
 5. define a function to return the maximum and minimum number in 'numbers_list'.
+
+Happy Coding!
 """
 
 numbers_list = [56, 8.5, 4, 33, 90, 1003, 100.2, 10.0, 34,
