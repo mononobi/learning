@@ -13,6 +13,8 @@
 
 4. define a function to calculate the sum of numbers in each of even and odd numbers list.
    (do not use loop for this, search the web if needed)
+
+5. define a function to return the maximum and minimum number in 'numbers_list'.
 """
 
 numbers_list = [56, 8.5, 4, 33, 90, 1003, 100.2, 10.0, 34,
