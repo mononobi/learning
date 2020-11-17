@@ -16,6 +16,8 @@
 
 5. define a function to return the maximum and minimum number in 'numbers_list'.
 
+6. define a function to return a new single list from odd and even numbers lists.
+
 Happy Coding!
 """
 
