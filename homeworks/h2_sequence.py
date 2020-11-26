@@ -31,7 +31,7 @@ def get_shorter_list(a, b):
 
 
 # test
-print('The shorter list is: ',  get_shorter_list(first_names, last_names))
+print('The shorter list is: ', get_shorter_list(first_names, last_names))
 
 
 def match_names_v1(a, b):
@@ -39,7 +39,7 @@ def match_names_v1(a, b):
      Uses the above method to finde the shorter list"""
     ref_list = get_shorter_list(first_names, last_names)
     for index, name in enumerate(ref_list):
-        print(index+1, a[index].capitalize(), b[index].capitalize())
+        print(index + 1, a[index].capitalize(), b[index].capitalize())
 
 
 # test
@@ -52,8 +52,9 @@ def match_names_v2(a, b):
      Finding the right (shorter) indexing happens within the function itself"""
     for index, name in enumerate(a):
         print(index + 1, a[index].capitalize(), b[index].capitalize())
-        if index >= min(len(a), len(b))-1:
+        if index >= min(len(a), len(b)) - 1:
             break
+
 
 # test
 print('Matching by the second version of the function: ')
@@ -71,7 +72,8 @@ def get_longer_list(a, b):
         max_list = a
     return max_list
 
-#test
+
+# test
 print('The longer List is: ', get_longer_list(first_names, last_names))
 
 
@@ -83,12 +85,13 @@ def sort_names1(a, b):
     b = sorted(b, reverse=True)
     print('First names: ')
     for index, firstname in enumerate(a):
-        print(index+1, a[index])
+        print(index + 1, a[index])
     print('Last names: ')
     for index, lastname in enumerate(b):
-        print(index+1, b[index])
+        print(index + 1, b[index])
 
-#test
+
+# test
 sort_names1(first_names, last_names)
 
 
@@ -99,5 +102,6 @@ def sort_names2(a, b):
     b = sorted(b, reverse=True)
     return a, b
 
-#test
+
+# test
 print(sort_names2(first_names, last_names))
