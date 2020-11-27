@@ -1,5 +1,8 @@
 # -*- coding: utf-8 -*-
 """
+1. for loop
+2. mathematical operators
+3. boolean type
 """
 
 # all mathematical operators:

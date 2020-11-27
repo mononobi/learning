@@ -1,3 +1,9 @@
+"""
+1. basic data types
+2. collections
+3. function definition and call
+"""
+
 # data types: int, str, float, bytes, datetime, date, time, type, bool, None
 # collection types: list, tuple, set, dict
 

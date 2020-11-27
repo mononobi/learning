@@ -1,3 +1,7 @@
+"""
+1. importing module
+"""
+
 # these two imports will import all methods and classes of given module.
 import math
 import math as a

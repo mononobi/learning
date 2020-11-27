@@ -1,3 +1,12 @@
+"""
+1. defining functions
+2. condition checks
+3. while loop
+4. continue, break in loops
+5. raising exceptions
+"""
+
+
 def sum(num1, num2):
     return num1 + num2
 

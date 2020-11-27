@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-list and tuple.
+1. list
+2. tuple
 """
 
 a1 = []

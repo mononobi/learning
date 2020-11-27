@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-str class.
+1. str type
 """
 
 str
