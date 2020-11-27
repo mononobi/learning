@@ -30,11 +30,13 @@ numbers_list = [56, 8.5, 4, 33, 90, 1003, 100.2, 10.0, 34,
    odd numbers into two separate lists (excluding float and negative numbers).
 """
 
+even_list = []
+odd_list = []
+
 
 def find_evens_looped(num_list):
-    even_list = []
-    odd_list = []
-    for index, num in enumerate(num_list):
+    for num in num_list:
+    # for index, num in enumerate(num_list):
         """check if it is integer"""
         if round(abs(num)) == num:
             if num % 2 == 0:
@@ -43,7 +45,8 @@ def find_evens_looped(num_list):
                 odd_list.append(num)
     even_list.sort()
     odd_list.sort()
-    return 'List of the even numbers', even_list, 'List of the odd numbers', odd_list
+    # return 'List of the even numbers', even_list, 'List of the odd numbers', odd_list
+    return even_list, odd_list
 
 
 print(find_evens_looped(numbers_list))
@@ -55,7 +58,9 @@ print(find_evens_looped(numbers_list))
 """
 
 
-## not done yet
+def convert_to_tuple(num_list):
+    even, odd = find_evens_looped(num_list)
+    return tuple(even), tuple(odd)
 
 
 """
@@ -74,7 +79,8 @@ def remove_first_negative(num_list):
         if num < 0:
             break
     num_list.remove(n)
-    return 'index, value', i, n, 'is removed: ', num_list
+    # return 'index, value', i, n, 'is removed: ', num_list
+    return i, n, num_list
 
 
 print(remove_first_negative(numbers_list))
@@ -91,10 +97,12 @@ numbers_list = [56, 8.5, 4, 33, 90, 1003, 100.2, 10.0, 34,
 
 
 def even_odds(num_list):
-    even_list = [num for num in num_list if num % 2 == 0 and abs(round(num)) == num]
-    odd_list = [num for num in num_list if num % 2 != 0 and abs(round(num)) == num]
-    evens = sum(even_list)
-    odds = sum(odd_list)
+    # even_list = [num for num in num_list if num % 2 == 0 and abs(round(num)) == num]
+    # odd_list = [num for num in num_list if num % 2 != 0 and abs(round(num)) == num]
+    # unpacking function result into two separate items.
+    eve, odd = find_evens_looped(num_list)
+    evens = sum(eve)
+    odds = sum(odd)
     return 'Sum of the even numbers =', evens, 'Sum of the odd numbers =', odds
 
 
@@ -120,12 +128,13 @@ print(mini_maxi(numbers_list))
 
 
 def new_list(num_list):
-    eve = [num for num in num_list if num % 2 == 0 and abs(round(num)) == num]
-    odd = [num for num in num_list if num % 2 != 0 and abs(round(num)) == num]
+    # eve = [num for num in num_list if num % 2 == 0 and abs(round(num)) == num]
+    # odd = [num for num in num_list if num % 2 != 0 and abs(round(num)) == num]
+    # unpacking function result into two separate items.
+    eve, odd = find_evens_looped(num_list)
     eve.extend(odd)
     eve.sort()
     return eve
 
 
 print(new_list(numbers_list))
-
