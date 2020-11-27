@@ -152,7 +152,7 @@ length = len(my_set3)
 # indexing is not supported on sets
 # a = my_set3[0]
 
-# set item are always unique.
+# set items are always unique.
 nums = {1, 2, 3, 4, 5, 1, 2, 3}
 print(nums)
 
