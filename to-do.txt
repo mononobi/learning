@@ -16,3 +16,4 @@
 *. solid concepts [professional]
 *. multithreading [professional]
 *. multiprocessing [professional]
+*. thread safety [professional]
