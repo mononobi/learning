@@ -1,5 +1,5 @@
-*. regular expressions [intermediate]
 *. running application from command line [intermediate]
+*. regular expressions [intermediate]
 *. connecting to database [intermediate]
 *. object oriented concept [intermediate]
 *. classes [intermediate]
