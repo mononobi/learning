@@ -1,0 +1,6 @@
+1. regular expressions [intermediate]
+2. connecting to database [intermediate]
+3. running application from command line [intermediate]
+4. using orm [professional]
+5. multithreading [professional]
+6. multiprocessing [professional]
