@@ -186,4 +186,3 @@ print(is_superset)
 
 is_superset = nums1.issuperset(sub_num1)
 print(is_superset)
-
