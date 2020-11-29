@@ -95,3 +95,19 @@ sample_dict5 = dict(name='Cameron', age=50, unit='dev',
                     random_num=get_random_integer(), empty=None)
 
 # TODO: Your code goes here:
+
+
+"""
+6. write a function which takes two lists as an input.
+   it must return the list of values which are present in both lists.
+
+   you could use the sample lists below as an input to your function.
+"""
+
+sample_list6_1 = [100, 200, 300, 400, 500, 600, 700, 800]
+sample_list6_2 = [100, 150, 200, 250, 300, 250, 350, 400]
+
+sample_list6_3 = ['rabbit', 'lion', 'goat', 'mouse', 'cat', 'wolf']
+sample_list6_4 = ['lion', 'bird', 'elephant', 'Rabbit', 'deer', 'snake', 'rabbit']
+
+# TODO: Your code goes here:
