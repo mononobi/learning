@@ -34,6 +34,17 @@ sample_dict1 = dict(current_hour=get_current_hour,
 # TODO: Your code goes here:
 
 
+def find_callables(a_dict):
+    dict_result = {}
+    for keys, values in a_dict.items():
+        if callable(values):
+            dict_result[keys] = values()
+    return dict_result
+
+
+print(find_callables(sample_dict1))
+
+
 """
 2. write a function which takes a dict as an input and loops through the
    items of the input dict and converts all keys to upper case and removes
@@ -50,6 +61,16 @@ sample_dict2 = dict(name='Jack', Age=23, ADDRESS='Berlin',
 # TODO: Your code goes here:
 
 
+def get_it_up(b_dict):
+    dict_result = {}
+    for keys, values in b_dict.items():
+        dict_result[keys.upper()] = values
+    return dict_result
+
+
+print(get_it_up(sample_dict2))
+
+
 """
 3. write a function which takes a list of numbers. the list could have duplicate
    values int it. the function must return a list of input items but without any 
@@ -61,6 +82,14 @@ sample_dict2 = dict(name='Jack', Age=23, ADDRESS='Berlin',
 sample_list3 = [-9, 34, 7, 9, 0, -9, 34, 2, 4, 9, 8, 11, 7, 7, -34, 9, 30]
 
 # TODO: Your code goes here:
+
+
+def remove_dups(c_list):
+    the_set = set(c_list)
+    return the_set
+
+
+print(remove_dups(sample_list3))
 
 
 """

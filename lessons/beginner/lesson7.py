@@ -22,6 +22,7 @@ print(c1, c2, c3, c4)
 a = go
 b = tuple
 a()
+print(b)
 print(callable(a))
 
 # dictionary
