@@ -10,6 +10,7 @@
 *. access level [intermediate]
 *. inheritance [intermediate]
 *. issubclass method [intermediate]
+*. decorators [intermediate]
 *. multiple inheritance [professional]
 *. polymorphism [professional]
 *. using orm [professional]
