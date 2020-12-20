@@ -161,6 +161,7 @@ sample_list6_4 = ['lion', 'bird', 'elephant', 'Rabbit', 'deer', 'snake', 'rabbit
 
 # TODO: Your code goes here:
 
+
 def find_commons(a_list, b_list):
     a_set = conv2set(a_list)
     b_set = conv2set(b_list)
