@@ -18,7 +18,7 @@ def get_current_hour():
 
 
 def get_random_integer():
-    return int(random.random())
+    return int(random.random() * 100)
 
 
 sample_dict1 = dict(current_hour=get_current_hour,
