@@ -84,12 +84,12 @@ sample_list3 = [-9, 34, 7, 9, 0, -9, 34, 2, 4, 9, 8, 11, 7, 7, -34, 9, 30]
 # TODO: Your code goes here:
 
 
-def remove_dups(c_list):
+def conv2set(c_list):
     the_set = set(c_list)
     return the_set
 
 
-print(remove_dups(sample_list3))
+print(conv2set(sample_list3))
 
 
 """
@@ -110,6 +110,16 @@ sample_set4_not_equal = {0, 9, 8, 7, 6, 1, 2, 3}
 # TODO: Your code goes here:
 
 
+def compare(listi, seti):
+    return conv2set(listi) == conv2set(seti)
+
+
+print(compare(sample_list4_equal, sample_set4_equal))
+
+
+print(compare(sample_list4_not_equal, sample_set4_not_equal))
+
+
 """
 5. write a function which takes a dict and another single value as key name.
    if the provided key name is present in the input dict, it must return the value
@@ -124,6 +134,16 @@ sample_dict5 = dict(name='Cameron', age=50, unit='dev',
                     random_num=get_random_integer(), empty=None)
 
 # TODO: Your code goes here:
+
+def get_value(a_dict, a_key):
+    the_value = a_dict.get(a_key, 'The key "' + a_key + '" was not found.')
+    return(the_value)
+
+
+print(get_value(sample_dict5, 'age'))
+
+
+print(get_value(sample_dict5, 'adress'))
 
 
 """
@@ -140,3 +160,14 @@ sample_list6_3 = ['rabbit', 'lion', 'goat', 'mouse', 'cat', 'wolf']
 sample_list6_4 = ['lion', 'bird', 'elephant', 'Rabbit', 'deer', 'snake', 'rabbit']
 
 # TODO: Your code goes here:
+
+def find_commons(a_list, b_list):
+    a_set = conv2set(a_list)
+    b_set = conv2set(b_list)
+    the_set = a_set.intersection(b_set)
+    return list(the_set)
+
+
+print(find_commons(sample_list6_1, sample_list6_2))
+
+print(find_commons(sample_list6_3, sample_list6_4))
