@@ -11,6 +11,7 @@
 *. inheritance [intermediate]
 *. issubclass method [intermediate]
 *. decorators [intermediate]
+*. property, class method and static method [intermediate]
 *. multiple inheritance [professional]
 *. polymorphism [professional]
 *. using orm [professional]
