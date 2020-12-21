@@ -1,4 +1,4 @@
-*. running application from command line [intermediate]
+*. running application from command line [intermediate] #OK
 *. regular expressions [intermediate]
 *. connecting to database [intermediate]
 *. object oriented concept [intermediate]
