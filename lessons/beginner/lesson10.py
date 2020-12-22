@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 """
-1. running application from command line
-2. input method
-3. file generation, modification
+1. finally block
+2. running application from command line
+3. input method
+4. file generation, modification
 """
