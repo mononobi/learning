@@ -63,9 +63,10 @@ print(my_time)
 
 # string formatting
 
-values = dict(name='Tarek', work='Musician')
+
 message = 'Hello dear {name}, please input your age and {work}:'
 message1 = message.format(name='Sheida', work='Job')
+values = dict(name='Tarek', work='Musician')
 message2 = message.format(**values)
 print(message1)
 print(message2)

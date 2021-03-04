@@ -30,36 +30,33 @@ sequences = []
 dictionaries = []
 unknown = []
 
+
+# dt = [d for d in mixed if isinstance(d, (datetime, date, time, timedelta))] # that is the correct way to compare Type, NOT with type castig: type() !!
+# num = [n for n in mixed if type(n) in (int, float)]
+
+
 # TODO: Your code goes here:
-from datetime import datetime, date, time, timedelta
+#from datetime import datetime, date, time, timedelta
+
+def sorting_out():
+    #result = []
+    for item in objects:
+        if isinstance(item, (datetime, date, time, timedelta)):
+            date_times.append(item)
+        elif isinstance(item, (int, float)) and not isinstance(item, bool): # beacuase bool is a sub type from int
+            numbers.append(item)
+        elif isinstance(item, str):
+            strings.append(item)
+        elif isinstance(item, (list, set, tuple)):
+            sequences.append(item)
+        elif isinstance(item, dict):
+            dictionaries.append(item)
+        else:
+            unknown.append(item)
 
 
-def types_in_list(list1):
-    types = []
-    for index, name in enumerate(list1):
-        types.append(type(list1[index]))
-    return types
+sorting_out()
 
-print(types_in_list(objects))
-#print(objects)
-
-
-def sorting_out(mixed, dt, num, st, seq, dic, na):
-    dt = [d for d in mixed if type(d) in (datetime, date, time, timedelta)]
-    num = [n for n in mixed if type(n) in (int, float)]
-    st = [s for s in mixed if type(s) == str]
-    seq = [se for se in mixed if type(se) in (set, tuple, list)]
-    dic = [dc for dc in mixed if type(dc) == dict]
-    for index, name in enumerate(mixed):
-        if type(mixed[index]) in (datetime, date, time, timedelta):
-            dt.append(mixed[index])
-            elif 
-    return(seq)
-
-
-
-
-print(sorting_out(objects, date_times, numbers, strings, sequences, dictionaries, unknown))
 
 """
 2. write a function to return a message showing the count of items in 
@@ -67,6 +64,14 @@ print(sorting_out(objects, date_times, numbers, strings, sequences, dictionaries
 """
 
 # TODO: Your code goes here:
+def length():
+    num_len = len(numbers)
+    num_str = len(strings)
+    num_dt = len(date_times)
+    num_dic = len(dictionaries)
+    num_seq = len(sequences)
+    num_na = len(unknown)
+
 
 
 """
