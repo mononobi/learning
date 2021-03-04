@@ -64,15 +64,23 @@ sorting_out()
 """
 
 # TODO: Your code goes here:
+
+
 def length():
-    num_len = len(numbers)
+    num_num = len(numbers)
     num_str = len(strings)
     num_dt = len(date_times)
     num_dic = len(dictionaries)
     num_seq = len(sequences)
     num_na = len(unknown)
 
+    message = "Number of items:\n  Numbers:{num_num}\n  Strings:{num_str}\n  Date&Time:{num_dt}\n" \
+              "  Dictionaries:{num_dic}\n  Sequences:{num_seq}\n  Unknown:{num_na}"
+    message = message.format(num_num=num_num, num_str=num_str, num_dt=num_dt, num_dic=num_dic, num_seq=num_seq, num_na=num_na)
+    print(message)
 
+# call
+length()
 
 """
 3. write a function to return a message showing the items of date_times list separated 
@@ -80,14 +88,14 @@ def length():
 """
 
 # TODO: Your code goes here:
-
+# keyword: join
 
 """
 4. write a function to get the datetime of tomorrow from now.
 """
 
 # TODO: Your code goes here:
-
+# keyword: check the methods of Datetime and Timedelta (choose, ctrl, click)
 
 """
 5. write a function which takes a single date object and returns the date of 7 days ago.
