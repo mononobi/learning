@@ -31,7 +31,35 @@ dictionaries = []
 unknown = []
 
 # TODO: Your code goes here:
+from datetime import datetime, date, time, timedelta
 
+
+def types_in_list(list1):
+    types = []
+    for index, name in enumerate(list1):
+        types.append(type(list1[index]))
+    return types
+
+print(types_in_list(objects))
+#print(objects)
+
+
+def sorting_out(mixed, dt, num, st, seq, dic, na):
+    dt = [d for d in mixed if type(d) in (datetime, date, time, timedelta)]
+    num = [n for n in mixed if type(n) in (int, float)]
+    st = [s for s in mixed if type(s) == str]
+    seq = [se for se in mixed if type(se) in (set, tuple, list)]
+    dic = [dc for dc in mixed if type(dc) == dict]
+    for index, name in enumerate(mixed):
+        if type(mixed[index]) in (datetime, date, time, timedelta):
+            dt.append(mixed[index])
+            elif 
+    return(seq)
+
+
+
+
+print(sorting_out(objects, date_times, numbers, strings, sequences, dictionaries, unknown))
 
 """
 2. write a function to return a message showing the count of items in 
