@@ -14,7 +14,7 @@ first_names = ['azin', 'tarek', 'sheida', 'mohamad',
 
 last_names = ['kamali', 'krohn', 'nobakht', 'nobakht', 'roostaei', 'fallah', 'noorian']
 
-
+############################### FIRST TRY #############################################################################
 ###### Excersice 1 ######
 
 
@@ -36,7 +36,7 @@ print('The shorter list is: ', get_shorter_list(first_names, last_names))
 
 def match_names_v1(a, b):
     """gets two lists and matches the first and last names
-     Uses the above method to finde the shorter list"""
+     Uses the above method to find the shorter list"""
     ref_list = get_shorter_list(first_names, last_names)
     for index, name in enumerate(ref_list):
         print(index + 1, a[index].capitalize(), b[index].capitalize())
@@ -107,3 +107,27 @@ def sort_names2(a, b):
 print(sort_names2(first_names, last_names))
 
 
+############################### SECOND TRY ############################################################################
+
+
+def check_length(a, b, c='max'):
+    result = b
+    if c == 'min':
+        if len(a) < len(b):
+            result = a
+    else:
+        if len(a) > len(b):
+            result = a
+    return result
+
+
+print(check_length(first_names, last_names))
+
+
+def match_names_v3(a, b):
+    mini = check_length(a, b, c='min')
+    for index, names in enumerate(mini):
+        print(index+1, a[index], b[index])
+
+
+print(match_names_v3(first_names, last_names))

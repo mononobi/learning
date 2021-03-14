@@ -23,7 +23,8 @@ def sub(num1, num2):
 
 def div(num1, num2):
     if num2 is None or num2 == 0:
-        raise Exception('Cannot be divided by Zero!!!')
+        raise Exception('Cannot be divided by Zero!!!!!!')
+    ##else:
     return num1/num2
 
 def mul(num1, num2):
@@ -44,5 +45,5 @@ def calc(num1,num2,op='+'):
 
 # Example: Dividing 1 by 5
 print(calc(1,5,'/'))
-
+print(calc(1,0,'/'))
 
