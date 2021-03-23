@@ -144,7 +144,7 @@ def get_value(a_dict, a_key):
 print(get_value(sample_dict5, 'age'))
 
 
-print(get_value(sample_dict5, 'adress'))
+print(get_value(sample_dict5, 'address'))
 
 
 """
