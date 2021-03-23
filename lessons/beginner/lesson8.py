@@ -70,7 +70,7 @@ print(my_time)
 
 message = 'Hello dear {name}, please input your age and {work}:'
 message1 = message.format(name='Sheida', work='Job')
-values = dict(name='Tarek', work='Musician')
+values = dict(name='Tarek', work='Musician job')
 message2 = message.format(**values)
 print(message1)
 print(message2)
@@ -86,7 +86,6 @@ print(result2)
 # list comprehensions
 
 b = (1, 2, 3, 4)
-
 results = {str(item) for item in a if item > 2}
 print(results)
 
@@ -97,8 +96,8 @@ items = [1, 2, 3, 'a', 5, 'b']
 new_items = []
 
 try:
-    for item in items:
-        new_items.append(item.upper())
+    for nn in items:
+        new_items.append(nn.upper())
 except (AttributeError, ImportError) as error:
     print(error)
     # raise error
