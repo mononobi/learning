@@ -48,6 +48,10 @@ print(my_datetime >= now)
 # gets the difference between datetime object and epoch date (somewhere in 1970s) in floating seconds.
 print(now.timestamp())
 
+
+my_datetime = datetime(2020, month=12, day=11, hour=23, minute=2, second=25 ) + timedelta(minutes=3, milliseconds=854, microseconds=25)
+print(my_datetime)
+
 # date
 
 my_date = date(year=2009, month=2, day=23)
