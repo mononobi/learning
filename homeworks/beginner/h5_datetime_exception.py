@@ -15,6 +15,7 @@
 """
 
 from datetime import datetime, date, time, timedelta
+import math
 
 
 objects = ['name', 10.4, True, 98, -9, 'Tree', [], datetime.now(),
@@ -87,8 +88,15 @@ length()
    by double dashes `--`.
 """
 
+
 # TODO: Your code goes here:
 # keyword: join
+
+def message_list(alist):
+    message = '--'.join([str(n) for n in alist])
+    return message
+
+print(message_list(date_times))
 
 """
 4. write a function to get the datetime of tomorrow from now.
@@ -96,13 +104,25 @@ length()
 
 # TODO: Your code goes here:
 # keyword: check the methods of Datetime and Timedelta (choose, ctrl, click)
+def tomorrowi():
+    now = datetime.now()
+    tomorrow = now + timedelta(days=1)
+    return tomorrow
+
+
+print(tomorrowi())
 
 """
 5. write a function which takes a single date object and returns the date of 7 days ago.
 """
 
 # TODO: Your code goes here:
+def week_ago(dt):
+    #now = date.now()
+    last_week = dt + timedelta(days=-7)
+    return last_week
 
+print(week_ago(date.today()))
 
 """
 6. write a function which takes two datetime objects and returns the difference 
@@ -110,7 +130,13 @@ length()
 """
 
 # TODO: Your code goes here:
+def dt_dif(dt1, dt2):
+    dif = dt1 - dt2
+    dif_sec = dif.total_seconds()
+    return abs(int(dif_sec))
 
+
+print(dt_dif(datetime.now(), datetime(2020, 2, 11)))
 
 """
 7. we have a time object and a list of datetime objects.
@@ -128,6 +154,15 @@ datetime_items = [datetime.now(),
                   datetime(year=1990, month=8, day=14, hour=16, minute=1, second=1)]
 
 # TODO: Your code goes here:
+def bigger_times():
+    lt = []
+    for t in datetime_items:
+        if t.time() > single_time:
+            lt.append(t)
+    return lt
+
+
+print(bigger_times())
 
 
 """
@@ -175,3 +210,17 @@ def validate_number(value):
 
 
 # TODO: Your code goes here:
+def check_my_list():
+    for i in numbers_list:
+        try:
+            output = validate_number(i)
+            print(output)
+        except (NegativeNumberError, InvalidNumberError) as err:
+            print(err)
+            continue
+        except NoneNumberError:
+            continue
+
+
+check_my_list()
+
