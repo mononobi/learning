@@ -5,3 +5,45 @@
 3. input method
 4. file generation, modification
 """
+
+# try, except, finally:
+
+items = [1, 2, 3, -9, 10]
+
+# in the first block on each error, the code execution will be continued.
+for item in items:
+    try:
+        if item <= 0:
+            raise Exception('Invalid Number.')
+    except Exception as some_error:
+        print(some_error)
+
+    finally:
+        print(item)
+
+
+# in the second block, on first exception, the number will be
+# printed but code execution will end immediately.
+
+# UNCOMMENT TO SEE THE BEHAVIOR
+# for item in items:
+#     try:
+#         if item <= 0:
+#             raise Exception()
+#
+#     finally:
+#         print(item)
+
+
+def multiply(num):
+    return num * 2
+
+
+def get_number():
+    num = input('Please input a number: ')
+    return int(num)
+
+
+if __name__ == '__main__':
+    num = get_number()
+    print(multiply(num))
