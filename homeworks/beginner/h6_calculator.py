@@ -3,8 +3,6 @@
 a simple calculator app.
 """
 
-
-
 def sumi(num1, num2):
     return num1 + num2
 
