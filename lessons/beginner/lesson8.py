@@ -105,3 +105,12 @@ except LookupError:
     raise Exception('I have errors.')
 
 print(new_items)
+
+
+try:
+    pass
+except (AttributeError, ImportError) as name:
+    pass
+
+except LookupError:
+    pass
