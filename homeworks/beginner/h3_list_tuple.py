@@ -138,3 +138,7 @@ def new_list(num_list):
 
 
 print(new_list(numbers_list))
+
+
+import random
+print(random.randrange((1,2)))
