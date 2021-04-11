@@ -18,7 +18,7 @@ def mulp(num1, num2):
 signs = {'+': sumi, '-': minusi, '/': divi, '*': mulp}
 
 def calci(num1, num2, sign):
-    operation = signs.get(sign) # dict.get rerurns NONE if the key does not exist
+    operation = signs.get(sign) # dict.get returns NONE if the key does not exist
     if operation is None:
         raise Exception('Operation is not defined')
     return operation(num1, num2)
