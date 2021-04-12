@@ -27,9 +27,11 @@ def my_list(num1, num2, num3):
     l_list.sort()
     rand_number = random_number(l_list[0], l_list[2])
     compare_number = l_list[1]
+    # TODO: return tuple instead of list for clarification and repack them after call.
     return [rand_number, compare_number]
 
 
+# TODO: get inputs as separate numbers for clarification.
 def lucky_game(the_list):
     the_list.sort()
     bonus_list = []
