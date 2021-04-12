@@ -12,6 +12,7 @@ def random_number(n1,n2):
 def check_integer(num):
     if not num.isdigit():
         raise Exception('Error! You entered a non-number!!')
+    # here
     elif not isinstance(int(num), int):
         raise Exception('Error! Your number has either fractions or is negative!')
     return int(num)
