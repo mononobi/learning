@@ -4,9 +4,6 @@ import math
 
 def random_number(n1,n2):
     random.seed()
-    n1 = n1 + random.randrange(1, 100)
-    random.seed()
-    n2 = n2 + random.randrange(1, 100)
     output = [n1, n2]
     output.sort()
     return random.randrange(output[0], output[1])
@@ -21,6 +18,10 @@ def check_integer(num):
 
 
 def my_list(num1, num2, num3):
+    random.seed()
+    num1 = num1 + random.randrange(1, 100)
+    num2 = num2 + random.randrange(1, 100)
+    num3 = num3 + random.randrange(1, 100)
     l_list = [num1, num2, num3]
     l_list.sort()
     rand_number = random_number(l_list[0], l_list[2])
