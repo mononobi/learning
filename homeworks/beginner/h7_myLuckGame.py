@@ -51,12 +51,12 @@ def lucky_game(the_list):
 
 
 def final_massages(num):
+    if num == 0:
+        message1 = '\nYou scored zero, we are sorry :(\n'
     if num < 1000:
-        message1 = '\nThe jackpot score is 1000.000, you scored only {result}, better luck next time!\n'
-    elif num < 200000:
-        message1 = '\nThe jackpot score is 1000.000, you scored only {result}, I bet you could do better next time!\n'
+        message1 = '\nYou scored only {result} and the jackpot score would be 1000.000, better luck next time!\n'
     elif num < 500000:
-        message1 = '\nThe jackpot score is 1000.000, you scored {result}.Not bad! ' \
+        message1 = '\nYou scored {result} and a jackpot score would be 1000.000, not bad at all!' \
                   '\nmaybe you d be even luckier next time!\n'
     elif num < 1000000:
         message1 = '\nThe jackpot score is 1000.000, you scored {result}.Pretty cool!! In your luck you may trust!\n'
