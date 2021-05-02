@@ -78,6 +78,7 @@ def get_inputs():
 def get_ok():
     # TODO: handle special word to start again.
     q = input('Press "Enter" to start a new round of the game: \n\n')
+    return q
 
 
 def continue_ok(i):
