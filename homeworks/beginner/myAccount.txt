@@ -1,1 +1,1 @@
-{'acnt': 22412, 'slug': 'QDdm', 'Balance': 450}
+{'acnt': 0, 'slug': 0, 'Balance': 0}

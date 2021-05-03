@@ -104,6 +104,17 @@ def balance(pss, dummy=0):
     return account_info['Balance']
 
 
+operations = {'+': deposit, '-': withdraw, 'b': balance}
+
+
+def acnt_operations(op, amnt, pss):
+    operation = operations.get(op)
+    amnt = check_integer(amnt)
+    if operation == None:
+        raise Exception('The operation is unknown!')
+    return operation(pss, amnt)
+
+
 def get_input_acnt():
     n1 = input('Please choose a 5-digits account number or enter 0 (for an automatic account number allocation): ')
     n1 = check_integer(n1)
@@ -117,24 +128,19 @@ def get_input_pass():
     return check_pass(n1)
 
 
-operations = {'+': deposit, '-': withdraw, 'b': balance}
-
-
 def get_input_op():
     n1 = input('Please select the desired operation: "+" for deposit, "-" for withdrawal, "b" for balance: ')
-    n2 = input('Please enter the amount (just a 0 if balance): ')
-    n2 = check_integer(n2)
-    n3 = input('Please enter your password: ')
+    if n1 != 'b':
+        n2 = input('Please enter the amount: ')
+        n2 = check_integer(n2)
+    else:
+        n2 = 0
+    if n1 != '+':
+        n3 = input('Please enter your password: ')
+    else:
+        n3 = 0
     return n1, n2, n3
 
-def acnt_operations(op, amnt, pss):
-    operation = operations.get(op)
-    amnt = check_integer(amnt)
-    if operation == None:
-        raise Exception('The account operation is unknown!')
-    return operation(pss, amnt)
-
-#print(acnt_operations('+', 100, 0))
 
 def finish_all():
     dicti: Dict[str, int] = {'acnt': 0, 'slug': 0, 'Balance': 0}
@@ -144,20 +150,20 @@ def finish_all():
 
 def the_messages(msg_type):
     if msg_type == 'n': ## open_account
-        message1 = 'Your account number is "{acnt}" and your password is "{pswrd}", please save them for later use.\n'
+        message1 = '\nYour account number is "{acnt}" and your password is "{pswrd}", please save them for later use.\n'
     elif msg_type == 'b': ## balance
-        message1 = 'Your balance is: {blnc} Euro. \n'
+        message1 = '\nYour balance is: {blnc} Euro. \n'
     elif msg_type == '+': ## deposit
-        message1 = 'The deposit of {amount} Euro is successfully done, your new balance is {blnc} Euro. \n'
+        message1 = '\nThe deposit of {amount} Euro is successfully done, your new balance is {blnc} Euro. \n'
     elif msg_type == '-': ## withdraw
-        message1 = 'The withdrawal of {amount} Euro is successfully done, your new balance is {blnc} Euro. \n'
+        message1 = '\nThe withdrawal of {amount} Euro is successfully done, your new balance is {blnc} Euro. \n'
     else:
-        message1 = 'Operation unknown'
+        message1 = '\nOperation unknown'
     return message1
 
 
 def get_command1():
-    q = input('Type in "n" to start operations for a new account, otherwise press any other key \n')
+    q = input('Type in "n" to start operations for a new account, otherwise press any other key to exist the program.\n')
     return q
 
 
@@ -170,7 +176,7 @@ def start_ok(i):
 
 
 def get_command2():
-    q = input('Type in "c" to continue and any other key to finish the operations (all account info willbe deleted) \n')
+    q = input('Type in "c" to continue, or any other key to finish the operations (all account info will be deleted)\n')
     return q
 
 
