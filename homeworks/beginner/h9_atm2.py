@@ -60,7 +60,7 @@ def check_account(account_number):
 
 def check_password(account_number, password):
     account = get_account(account_number)
-    if password != account.get('slug'):
+    if password != account.get('password'):
         raise Exception('Error: Password is not correct!')
 
 
@@ -91,7 +91,7 @@ def open_account():
     account.update(password=password, balance=0)
     accounts[account_number] = account
 
-    print('\nYour account info is:', account)
+    print('\nYour account info is:', account, '\n')
 
 
 def deposit():
@@ -101,7 +101,8 @@ def deposit():
     current_balance = account.get('balance')
     new_balance = current_balance + amount
     account.update(balance=new_balance)
-    return new_balance
+
+    print('\nYour new balance is: ', new_balance, '\n')
 
 
 def withdraw():
@@ -116,7 +117,8 @@ def withdraw():
 
     new_balance = current_balance - amount
     account.update(balance=new_balance)
-    return new_balance
+
+    print('\nYour new balance is: ', new_balance, '\n')
 
 
 def balance():
@@ -124,10 +126,11 @@ def balance():
     password = get_input_password()
     account = get_account(destination_account)
     check_password(destination_account, password)
-    return account.get('balance')
+
+    print('\nYour balance is: ', account.get('balance'), '\n')
 
 
-operations = {'+': deposit, '-': withdraw, 'b': balance, 'n': open_account}
+operations = {'+': deposit, '-': withdraw, 'b': balance, 'n': open_account, 'exit': exit}
 
 
 def operate():
@@ -135,7 +138,8 @@ def operate():
     operation = operations.get(input_operation)
     if operation is None:
         raise Exception('The operation is unknown!')
-    return operation()
+    operation()
+    return True
 
 
 def get_open_account():
@@ -168,8 +172,8 @@ def get_input_password():
 
 
 def get_input_operation():
-    operation = input('Please select the desired operation: "+" for deposit, '
-                      '"-" for withdrawal, "b" for balance: ')
+    operation = input('Please select the desired operation:\n "n" for opening a new account, "+" for deposit, '
+                      '"-" for withdrawal, "b" for balance,\n to finish the operations enter "exit": ')
 
     return operation
 
@@ -188,17 +192,6 @@ def the_messages(msg_type):
     return message1
 
 
-def get_command1():
-    q = input('Type in "n" to start operations for a new account, otherwise press any other key to exist the program.\n')
-    return q
-
-
-def start_ok(i):
-    result = True
-    if i != 'n':
-        result = False
-    return result
-
 
 def get_command2():
     q = input('Type in "c" to continue, or any other key to finish the operations (all account info will be deleted)\n')
@@ -213,31 +206,8 @@ def continue_ok(i):
 
 
 if __name__ == '__main__':
-    while start_ok(get_command1()):
+    while True:
         try:
-            acnt = get_input_acnt()
-            if acnt == 0:
-                account_info['acnt'] = open_account()[0]
-            else:
-                account_info['acnt'] = acnt
-            account_info['slug'] = open_account()[1]
-            with open("myAccount.txt", "w") as file:  # in write mode
-                file.write(str(account_info))
-            message = the_messages('n')
-            message = message.format(acnt=account_info['acnt'], pswrd=account_info['slug'])
-            print(message)
-            while continue_ok(get_command2()):
-                try:
-                    #pss = get_input_pass()
-                    #print(pss)
-                    op, amnt, pss = get_input_op()
-                    acnt_operations(op, amnt, pss)
-                    with open("myAccount.txt", "w") as file:  # in write mode
-                        file.write(str(account_info))
-                    message = the_messages(op)
-                    message = message.format(amount=amnt, blnc=account_info['Balance'])
-                    print(message)
-                except Exception as err:
-                    print(err)
+            operate()
         except Exception as err:
             print(err)
