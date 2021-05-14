@@ -3,7 +3,6 @@
 1. finally block
 2. running application from command line
 3. input method
-4. file generation, modification
 """
 
 # try, except, finally:
@@ -47,3 +46,14 @@ def get_number():
 if __name__ == '__main__':
     num = get_number()
     print(multiply(num))
+
+
+# COMMAND LINE ACTIONS:
+# open cmd in windows.
+
+# cd file_address: change working directory to "file_address"
+# cd C:\windows
+
+# dir: show list of all files and folders in current directory.
+
+# python file_name.py: execute a python file.
