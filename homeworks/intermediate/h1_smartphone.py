@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 we want to have a base smartphone class and an unlimited concrete smartphones.
-any smart phone should have these common interfaces:
+any smartphone should have these common interfaces:
 
 1. turn_on: turns the phone on.
 2. turn_off: turns the phone off.
