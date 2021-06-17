@@ -28,5 +28,5 @@ different types of smartphones lose charge at different rates:
 - OnePlus smartphones lose 15% of charge after 25 minutes of playing.
 
 Make different smartphone classes and make instances of each one and use
-the interface to interact with each phone.
+the common interface to interact with each phone.
 """
