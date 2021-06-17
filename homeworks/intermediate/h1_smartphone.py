@@ -5,11 +5,11 @@ any smart phone should have these common interfaces:
 
 1. turn_on: turns the phone on.
 2. turn_off: turns the phone off.
-3. charge: start charging the phone for specified minutes.
-4. get_charge: show the battery percentage.
-5. play: play with the phone for specified minutes.
-6. brand: show the phone's brand (.ex iPhone, Samsung, ...)
-7. model: show the phone's model (.ex SE, Galaxy S20, 9, ...)
+3. charge: starts charging the phone for specified minutes.
+4. get_charge: shows the battery percentage.
+5. play: plays with the phone for specified minutes.
+6. brand: shows the phone's brand (.ex iPhone, Samsung, ...)
+7. model: shows the phone's model (.ex SE, Galaxy S20, 9, ...)
 
 when a smartphone is created it should have 20% initial charge and it is turned off.
 
