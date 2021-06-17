@@ -27,6 +27,9 @@ different types of smartphones lose charge at different rates:
 - iPhones lose 15% of charge after 20 minutes of playing.
 - OnePlus smartphones lose 15% of charge after 25 minutes of playing.
 
+* when a phone's charge reaches to 0, it must be turned-off.
+* when charging a phone, the battery percentage should not go over 100.
+
 Make different smartphone classes and make instances of each one and use
 the common interface to interact with each phone.
 """
