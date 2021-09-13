@@ -1,6 +1,6 @@
 *. running application from command line [intermediate] #OK
 *. commandline actions [intermediate] # OK
-*. object oriented concept [intermediate] # OK
+*. object-oriented concept [intermediate] # OK
 *. classes [intermediate] # OK
 *. object initialization and creation (__init__, __new__) [intermediate]
 *. magic methods [intermediate]
