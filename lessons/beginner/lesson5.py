@@ -20,6 +20,7 @@ print(value.casefold())
 value2 = 'JaCK waldon'
 value2 = value2.center(40)
 
+# aa = value2.rjust(40)
 # rjust() and ljust() are the same as center but will pad from right and left respectively.
 
 print(value2)

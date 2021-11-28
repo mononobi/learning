@@ -108,6 +108,9 @@ print([1, 2] == [2, 1])
 print([1, 2] == [1, 2])
 
 
+my_list = [1, 3, 5]
+a, b, c = my_list
+
 # to unpack a sequence of items (list, tuple, set, ...) we set a * at the
 # beginning of the value. this is only permitted in method inputs.
 
@@ -168,9 +171,9 @@ def test1(value):
     print(value)
 
 
-value = [1, 2]
-test1(value)
-print(value)
+inputs = [1, 2]
+test1(inputs)
+print(inputs)
 
 
 def test2(value2):

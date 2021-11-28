@@ -61,6 +61,3 @@ def multiple(num1, num2, *args, num3=3, num4=4, **kwargs):
 result = multiple(2, 4, 6, 8, 10, num3=11)
 
 print(result)
-
-
-

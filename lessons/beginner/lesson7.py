@@ -100,6 +100,21 @@ dictionary.setdefault('address', 'Hamburg')
 dictionary.setdefault('age', 4)
 print(dictionary)
 
+
+d1 = dict(name='joe biden')
+d2 = dict()
+
+v1 = d1.get('name')
+v2 = d2.get('name', 'trump')
+
+# if 'name' not in d2:
+#     d2['name'] = 'trump'
+#
+# d2['name']
+
+v3 = d2.setdefault('name', 'trump')
+d2.get('name')
+
 # remove a key from dict, raises error if key does not exist.
 del dictionary['age']
 
@@ -113,7 +128,6 @@ dictionary.pop('not_present', 'US')
 
 # if you're sure the key exists:
 del dictionary['address']
-
 
 # set
 

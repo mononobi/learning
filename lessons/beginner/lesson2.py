@@ -126,7 +126,9 @@ number = 1
 
 # True, False and None must be compared using 'is' instead of '=='.
 while number <= 10 and my_var is True:
-    number = number + 1
+    number += 1
+    # OR number = number + 1
+
     if number < 4:
         # continue just breaks the current loop and jumps to start of the next loop.
         continue
