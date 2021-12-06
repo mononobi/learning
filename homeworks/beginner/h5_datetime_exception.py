@@ -3,7 +3,7 @@
 1. we have a list with different objects in it, named objects.
    we also have 6 more empty lists, named: date_times, numbers,
    strings, sequences, dictionaries, unknown.
-   write a function to to loop through the objects list and put each item in
+   write a function to loop through the objects list and put each item in
    its relevant list.
    for clarification:
    datetime, date, time, timedelta -----> datetime_list

@@ -36,9 +36,9 @@ sample_dict1 = dict(current_hour=get_current_hour,
 
 def find_callables(a_dict):
     dict_result = {}
-    for keys, values in a_dict.items():
-        if callable(values):
-            dict_result[keys] = values()
+    for key, value in a_dict.items():
+        if callable(value):
+            dict_result[key] = value()
     return dict_result
 
 
@@ -63,8 +63,8 @@ sample_dict2 = dict(name='Jack', Age=23, ADDRESS='Berlin',
 
 def get_it_up(b_dict):
     dict_result = {}
-    for keys, values in b_dict.items():
-        dict_result[keys.upper()] = values
+    for key, value in b_dict.items():
+        dict_result[key.upper()] = value
     return dict_result
 
 
@@ -86,7 +86,7 @@ sample_list3 = [-9, 34, 7, 9, 0, -9, 34, 2, 4, 9, 8, 11, 7, 7, -34, 9, 30]
 
 def conv2set(c_list):
     the_set = set(c_list)
-    return the_set
+    return list(the_set).sort()
 
 
 print(conv2set(sample_list3))
@@ -138,7 +138,7 @@ sample_dict5 = dict(name='Cameron', age=50, unit='dev',
 
 def get_value(a_dict, a_key):
     the_value = a_dict.get(a_key, 'The key "' + a_key + '" was not found.')
-    return(the_value)
+    return the_value
 
 
 print(get_value(sample_dict5, 'age'))

@@ -74,11 +74,14 @@ def remove_first_negative(num_list):
     i = n = None
     for index, num in enumerate(num_list):
         """check for non negative integers"""
-        i = index
-        n = num
         if num < 0:
+            i = index
+            n = num
             break
-    num_list.remove(n)
+
+    if n is not None:
+        num_list.remove(n)
+
     # return 'index, value', i, n, 'is removed: ', num_list
     return i, n, num_list
 

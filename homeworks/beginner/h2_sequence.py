@@ -85,10 +85,10 @@ def sort_names1(a, b):
     b = sorted(b, reverse=True)
     print('First names: ')
     for index, firstname in enumerate(a):
-        print(index + 1, a[index])
+        print(index + 1, firstname)
     print('Last names: ')
     for index, lastname in enumerate(b):
-        print(index + 1, b[index])
+        print(index + 1, lastname)
 
 
 # test
@@ -133,4 +133,4 @@ def match_names_v3(a, b):
 print(match_names_v3(first_names, last_names))
 
 import random
-print(random.randrange(10,1))
+print(random.randrange(10, 12))
