@@ -33,6 +33,7 @@ for item in items:
 #     finally:
 #         print(item)
 
+# executing a python file using command line:
 
 def multiply(num):
     return num * 2

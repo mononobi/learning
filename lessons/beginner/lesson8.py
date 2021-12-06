@@ -20,6 +20,8 @@ print(isinstance(number, int))
 
 from datetime import datetime, date, time, timedelta
 
+# import datetime
+
 my_datetime = datetime(2020, month=12, day=11, hour=23)
 print(my_datetime)
 
