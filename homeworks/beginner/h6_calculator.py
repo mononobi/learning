@@ -36,6 +36,7 @@ def get_input():
     num2 = check_int(num2)
     return num1, num2 , sign   ## it would return a tuple then
 
+
 if __name__ == '__main__':
     while True:
         try:
