@@ -34,7 +34,7 @@ def get_input():
     sign = input('Please enter one of the basic four operations: ')
     num1 = check_int(num1)
     num2 = check_int(num2)
-    return num1, num2 , sign   ## it would return a tuple then
+    return num1, num2, sign   ## it would return a tuple then
 
 
 if __name__ == '__main__':
