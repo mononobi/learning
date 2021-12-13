@@ -1,12 +1,20 @@
 # -*- coding: utf-8 -*-
 """
-1. object oriented concept.
+1. object-oriented concept.
 2. encapsulation (the most important oop concept)
 
 ref:
 https://www.freecodecamp.org/news/object-oriented-programming-concepts-21bb035f7260/
 https://softwareengineering.stackexchange.com/questions/336717/demonstrate-object-oriented-principles-to-non-programmers-using-physical-props
 """
+
+
+class Temp:
+    def __init__(self):
+        pass
+
+
+instance1 = Temp()
 
 
 class Smartphone:

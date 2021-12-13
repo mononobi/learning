@@ -82,16 +82,14 @@ def generate_password(size=4, chars=string.ascii_letters + string.digits):
 def open_account():
     account_number = get_open_account()
     account = {}
-    if account_number != '':
-        check_account(account_number)
-    else:
+    if account_number == '':
         account_number = generate_account_number()
 
     password = generate_password()
     account.update(password=password, balance=0)
     accounts[account_number] = account
 
-    print('\nYour account info is:', account, '\n')
+    print('\nYour account no is {number} with info: '.format(number=account_number), account, '\n')
 
 
 def deposit():

@@ -5,9 +5,15 @@
 3. polymorphism.
 """
 
+# ENCAPSULATION
+
+# ABSTRACTION
+
 # INHERITANCE:
 # attributes are: specifications
 # methods are: behaviors
+
+# POLYMORPHISM:
 
 
 class Animal:
@@ -27,7 +33,7 @@ class Animal:
         self._move()
 
     def make_sound(self):
-        pass
+        raise Exception('I dont know how to make sound')
 
     def _move(self):
         print('{name} is moving.'.format(name=self._name))
@@ -83,23 +89,24 @@ class Snake(Animal):
         super().eat(food)
 
 
-animal = Animal('Noah')
+noah = Animal('Noah')
 dog1 = Dog('Rex')
 dog2 = Dog('Jordan')
 husky = Husky('White Teeth')
 frog = Frog('Aunt')
 snake = Snake('Ghashghash')
 
-animal.make_sound()
+noah.make_sound()
 dog1.make_sound()
 husky.make_sound()
 snake.scare()
 frog.scare()
 
 print('POLYMORPHISM')
-animals = [animal, dog2, dog1, husky, frog, snake]
+animals = [noah, dog2, dog1, husky, frog, snake]
 for item in animals:
-    item.scare()
-    item.eat('Bread')
-    item.eat('meat')
-    item.make_sound()
+    if isinstance(item, Animal):
+        item.scare()
+        item.eat('Bread')
+        item.eat('meat')
+        item.make_sound()
