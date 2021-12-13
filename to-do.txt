@@ -2,19 +2,21 @@
 *. commandline actions [intermediate] # OK
 *. object-oriented concept [intermediate] # OK
 *. classes [intermediate] # OK
-*. object initialization and creation (__init__, __new__) [intermediate]
+*. object initialization (__init__) [intermediate] # OK
+*. polymorphism [professional] # OK
+*. encapsulation [intermediate] # OK
+*. inheritance [intermediate] # OK
+*. abstraction [intermediate] # OK
+*. access level [intermediate]
 *. magic methods [intermediate]
 *. hashing and hashable [intermediate]
-*. encapsulation [intermediate] # OK
-*. access level [intermediate]
-*. inheritance [intermediate] # OK
 *. issubclass method [intermediate]
 *. decorators [intermediate]
 *. property, class method and static method [intermediate]
 *. regular expressions [intermediate]
 *. connecting to database [intermediate]
 *. multiple inheritance [professional]
-*. polymorphism [professional] # OK
+*. object creation (__new__) [professional]
 *. using orm [professional]
 *. design patterns [professional]
 *. solid concepts [professional]
