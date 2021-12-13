@@ -11,7 +11,7 @@ any smartphone should have these common interfaces:
 6. brand: shows the phone's brand (.ex iPhone, Samsung, ...)
 7. model: shows the phone's model (.ex SE, Galaxy S20, 9, ...)
 
-when a smartphone is created it should have 20% initial charge and it is turned off.
+when a smartphone is created it should have 20% initial charge, and it is turned off.
 
 the `charge()` method must get a value as minutes of charging.
 different types of smartphones get charged at different rates:
