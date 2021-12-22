@@ -34,8 +34,10 @@ Make different smartphone classes and make instances of each one and use
 the common interface to interact with each phone.
 """
 
+import homeworks.intermediate.utils as utils
 
-class smartphone:
+
+class Smartphone:
     def __init__(self, brand, model):
         self._charge = 20
         self._power_on = False
@@ -44,12 +46,8 @@ class smartphone:
         self._brand = brand
         self._model = model
 
-    def check_minutes(self, num):
-        if num <= 0:
-            raise Exception('Invalid number of minutes')
-
     def charge(self, minutes):
-        self.check_minutes(minutes)
+        utils.assert_positive_number(minutes)
         if self._charge < 100:
             charged = round(minutes * self._charge_per_minute)
             self._charge = min(self._charge + charged, 100)
@@ -59,7 +57,7 @@ class smartphone:
             print('The phone is already fully charged')
 
     def play(self, minutes):
-        self.check_minutes(minutes)
+        utils.assert_positive_number(minutes)
         if not self._power_on:
             print('The phone is off')
         else:
@@ -105,54 +103,28 @@ class smartphone:
         print(message.format(brand=self._model))
 
 
-class samsung(smartphone):
-    def brand_charge(self):
+class Samsung(Smartphone):
+    def __init__(self, model):
+        super().__init__('Samsung', model)
         self._charge_per_minute = round(20/20, 2)
-
-    def brand_usage(self):
         self._usage_per_minute = round(10/20, 2)
 
-    def charge(self, minutes):
-        self.brand_charge()
-        super().charge(minutes)
 
-    def play(self, minutes):
-        self.brand_usage()
-        super().play(minutes)
-
-
-class iphone(smartphone):
-    def brand_charge(self):
+class iPhone(Smartphone):
+    def __init__(self, model):
+        super().__init__('iPhone', model)
         self._charge_per_minute = round(10/15, 2)
-
-    def brand_usage(self):
         self._usage_per_minute = round(15/20, 2)
 
-    def charge(self, minutes):
-        self.brand_charge()
-        super().charge(minutes)
 
-    def play(self, minutes):
-        self.brand_usage()
-        super().play(minutes)
-
-
-class oneplus(smartphone):
-    def brand_charge(self):
+class OnePlus(Smartphone):
+    def __init__(self, model):
+        super().__init__('iPhone', model)
         self._charge_per_minute = round(25/30, 2)
-
-    def brand_usage(self):
         self._usage_per_minute = round(15/25, 2)
 
-    def charge(self, minutes):
-        self.brand_charge()
-        super().charge(minutes)
 
-    def play(self, minutes):
-        self.brand_usage()
-        super().play(minutes)
-
-phone1 = oneplus('onePlus', '10Plus')
+phone1 = OnePlus('10Plus')
 phone1.get_brand()
 phone1.get_model()
 phone1.turn_off()
@@ -164,7 +136,7 @@ phone1.get_charge()
 phone1.play(10)
 phone1.play(20)
 
-phone2 = samsung('Samsung', 'Galaxy')
+phone2 = Samsung('Galaxy')
 phone2.get_brand()
 phone2.get_model()
 phone2.turn_off()
@@ -175,4 +147,3 @@ phone2.play(2)
 phone2.get_charge()
 phone2.play(10)
 phone2.play(20)
-
