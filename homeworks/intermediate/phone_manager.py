@@ -12,26 +12,52 @@ class PhoneManager:
         try:
             self._smartphone.charge(minutes)
             charge = self._smartphone.get_charge()
-            print(f'Charge level is {charge}%')
+            print(f'Charged for {minutes} and new charge level is {charge}%')
         except Exception as error:
             print(error)
 
     def play(self, minutes):
-        pass
+        try:
+            self._smartphone.play(minutes)
+            charge = self._smartphone.get_brand()
+            print(f'Music played for {minutes} and new charge level is {charge}%')
+        except Exception as error:
+            print(error)
 
     def turn_on(self):
-        pass
+        try:
+            self._smartphone.turn_on()
+        except Exception as error:
+            print(error)
 
     def turn_off(self):
-        pass
+        try:
+            self._smartphone.turn_off()
+        except Exception as error:
+            print(error)
 
     def get_charge(self):
-        pass
+        try:
+            charge = self._smartphone.get_charge()
+            print(f'Charge level is {charge}%')
+        except Exception as error:
+            print(error)
 
     def get_brand(self):
-        brand = self._smartphone.get_brand()
-        print(brand)
+        try:
+            brand = self._smartphone.get_brand()
+            print(brand)
+        except Exception as error:
+            print(error)
 
     def get_model(self):
-        model = self._smartphone.get_model()
-        print(model)
+        try:
+            model = self._smartphone.get_model()
+            print(model)
+        except Exception as error:
+            print(error)
+
+
+
+
+
