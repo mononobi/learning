@@ -7,14 +7,15 @@
 *. encapsulation [intermediate] # OK
 *. inheritance [intermediate] # OK
 *. abstraction [intermediate] # OK
-*. access level [intermediate]
+*. access level [intermediate] # OK
+*. issubclass method [intermediate] # OK
+*. property, static method [intermediate] # OK
 *. magic methods [intermediate]
 *. hashing and hashable [intermediate]
-*. issubclass method [intermediate]
 *. decorators [intermediate]
-*. property, class method and static method [intermediate]
 *. regular expressions [intermediate]
 *. connecting to database [intermediate]
+*. class method [professional]
 *. multiple inheritance [professional]
 *. object creation (__new__) [professional]
 *. using orm [professional]

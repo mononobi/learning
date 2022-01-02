@@ -5,9 +5,9 @@
 3. polymorphism.
 """
 
-# ENCAPSULATION
+# ENCAPSULATION:
 
-# ABSTRACTION
+# ABSTRACTION:
 
 # INHERITANCE:
 # attributes are: specifications
