@@ -18,6 +18,7 @@
 class Car:
 
     def __init__(self):
+        # Attributes:
         self.__km = 0
         self._model = None
         # self.rate = 5 public rate is not good because it can lead to wrong values.
@@ -37,11 +38,17 @@ class Car:
 
     def __transmit(self):
         pass
-
+    # for instance-method you need to build a object from the class and the call them
+    # for staticmethods you do not need to build an oject from the class, you can directly call the methods from the classs itself
+    # staticmethod has no SELF input variable
     @staticmethod
     def get_brand():
         pass
 
+    # property is an attribute. They are written as methods
+    # you cant call them
+    # you can only handle them as attributes. WITHOUT a ()
+    # its difference with attributes is that it garauntees Encpsulation
     @property
     def model(self):
         return self._model
@@ -49,7 +56,8 @@ class Car:
     @property
     def rate(self):
         return self._rate
-
+    # each Property is b default a GETTER (read only)
+    # if you want the property to be editable from outside, you should define it as a STTER
     @rate.setter
     def rate(self, value):
         if value is None or value < 0:
