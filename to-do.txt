@@ -10,8 +10,8 @@
 *. access level [intermediate] # OK
 *. issubclass method [intermediate] # OK
 *. property, static method [intermediate] # OK
-*. magic methods [intermediate]
-*. hashing and hashable [intermediate]
+*. magic methods [intermediate] # OK
+*. hashing and hashable [intermediate] # OK
 *. decorators [intermediate]
 *. regular expressions [intermediate]
 *. connecting to database [intermediate]
