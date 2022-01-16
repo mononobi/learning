@@ -41,139 +41,92 @@ the common interface to interact with each phone.
 
 import homeworks.intermediate.utils as utils
 
-
 class Smartphone:
-    def __init__(self, brand, model):
+    def __init__(self, brand, model, charge_per_minute, usage_per_minute):
+        utils.assert_positive_number(charge_per_minute)
+        if charge_per_minute > 100:
+            raise Exception('Change more than 100 invalid')
+        utils.assert_positive_number(usage_per_minute)
+        if usage_per_minute > 100:
+            raise Exception('Change more than 100 invalid')
         self._charge = 20
-        self._power_on = False
-        self._charge_per_minute = 0
-        self._usage_per_minute = 0
+        self._is_powered_on = False
+        self.__charge_per_minute = charge_per_minute
+        self.__usage_per_minute = usage_per_minute
         self._brand = brand
         self._model = model
 
     @property
-    def charge(self):
-        self._charge
+    def get_charge(self): ## Properties normaly start with get or is or has ...
+        if not self._is_powered_on:
+            raise Exception('The phone is off')
+        return self._charge ## property MUST return a variable
 
     @property
-    def power_on(self):
-        self._power_on
+    def is_powered_on(self):
+        return self._is_powered_on
 
-    @charge_per_minute.setter
-    def charge_per_minute(self, value):
-        utils.assert_positive_number(value)
-        if value > 100:
-            raise Exception('Change more than 100 invalid')
-        else:
-            self._charge_per_minute = value
+    @property
+    def charge_per_minute(self):
+        return self.__charge_per_minute
 
-    @usage_per_minute.setter
-    def usage_per_minute(self, value):
-        utils.assert_positive_number(value)
-        if value > 100:
-            raise Exception('Change more than 100 invalid')
-        else:
-            self._usage_per_minute = value
+    @property
+    def usage_per_minute(self):
+        return self.__usage_per_minute
 
-    @staticmethod
-    def get_brand():
-        pass
+    def get_brand(self):  ## it is better not define it static. because it is not possible, for BRAND is an input
+        ##pass
+        return self._brand
 
-    @staticmethod
-    def get_model():
-        pass
+    def get_model(self):  ## same explanation as get_brand
+        ##pass
+        return self._model
 
     def charge(self, minutes):
-        ##utils.assert_positive_number(minutes)
-        charged = round(minutes * self._charge_per_minute)
+        utils.assert_positive_number(minutes)
+        charged = round(minutes * self.__charge_per_minute)
         self._charge = min(self._charge + charged, 100)
-        message = 'Charged for {minutes} minutes. The battery level is {charge_level}%'
         return self._charge
 
     def play(self, minutes):
-        ##utils.assert_positive_number(minutes)
-        if not self._power_on:
+        utils.assert_positive_number(minutes)
+        if not self._is_powered_on:
             raise Exception('The phone is off')
-        else:
-            used_charge = round(minutes * self._usage_per_minute)
-            if self._charge <= used_charge:
-                self._charge = 0
-                self._power_on = False
-                raise Exception('Battery not sufficient')
-            else:
-                self._charge = self._charge - used_charge
-                return self._charge
+        used_charge = round(minutes * self.__usage_per_minute)
+        if self._charge <= used_charge:
+            self._charge = 0
+            self._is_powered_on = False
+            raise Exception('Battery not sufficient')
+        self._charge = self._charge - used_charge
+        return self._charge
 
     def turn_on(self):
-        if not self._power_on:
-            self._power_on = True
-        else:
-            raise Exception('The phone is already on')
+        if not self._is_powered_on:
+            self._is_powered_on = True
+        raise Exception('The phone is already on')
 
     def turn_off(self):
-        if self._power_on:
-            self._power_on = False
-        else:
+        if not self._is_powered_on:
             raise Exception('The phone is already off')
-
-    def get_charge(self):
-        if self._power_on:
-            return self._charge
-        else:
-            raise Exception('The phone is off')
-
-
-
+        self._is_powered_on = False
 
 
 class Samsung(Smartphone):
     def __init__(self, model):
-        super().__init__('Samsung', model) ##???
+        super().__init__('Samsung', model, round(20/20, 2), round(10/20, 2))
         #self._charge_per_minute = round(20/20, 2)
         #self._usage_per_minute = round(10/20, 2)
-
-    charge_per_minute = round(20/20, 2)
-    usage_per_minute = round(10 / 20, 2)
-
-    @staticmethod
-    def get_brand():
-        return 'Samsung'
-
-    @staticmethod
-    def get_model():
-        pass
 
 
 class iPhone(Smartphone):
     def __init__(self, model):
-        super().__init__('iPhone', model) ##???
-        #self._charge_per_minute = round(10/15, 2)
-        #self._usage_per_minute = round(15/20, 2)
+        super().__init__('iPhone', model, round(10/15, 2), round(15/20, 2))
+        ##self._charge_per_minute = round(10/15, 2)
+        ##self._usage_per_minute = round(15/20, 2)
 
-    charge_per_minute = round(10/15, 2)
-    usage_per_minute = round(15/20, 2)
-
-    @staticmethod
-    def get_brand():
-        return 'iPhone'
-
-    @staticmethod
-    def get_model():
-        pass
 
 class OnePlus(Smartphone):
     def __init__(self, model):
-        super().__init__('iPhone', model) ###??
-        #self._charge_per_minute = round(25/30, 2)
-        #self._usage_per_minute = round(15/25, 2)
-
-    charge_per_minute = round(25 / 30, 2)
-    usage_per_minute = round(15 / 25, 2)
-
-    @staticmethod
-    def get_brand():
-        return 'OnePlus'
-
-    @staticmethod
-    def get_model():
-        pass ##??
+        super().__init__('OnePlus', model, round(25/30, 2), round(15/25, 2))
+        ##self._charge_per_minute = round(25/30, 2)
+        ##self._usage_per_minute = round(15/25, 2)

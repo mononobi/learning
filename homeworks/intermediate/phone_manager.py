@@ -1,4 +1,4 @@
-from homeworks.intermediate.h1_smartphone import Smartphone
+from homeworks.intermediate.h2_smartphone_advanced import Smartphone, OnePlus
 
 
 class PhoneManager:
@@ -11,7 +11,7 @@ class PhoneManager:
     def charge(self, minutes):
         try:
             self._smartphone.charge(minutes)
-            charge = self._smartphone.get_charge()
+            charge = self._smartphone.get_charge ## without () bcs PROPERTY
             print(f'Charged for {minutes} and new charge level is {charge}%')
         except Exception as error:
             print(error)
@@ -19,7 +19,7 @@ class PhoneManager:
     def play(self, minutes):
         try:
             self._smartphone.play(minutes)
-            charge = self._smartphone.get_brand()
+            charge = self._smartphone.get_charge
             print(f'Music played for {minutes} and new charge level is {charge}%')
         except Exception as error:
             print(error)
@@ -38,7 +38,7 @@ class PhoneManager:
 
     def get_charge(self):
         try:
-            charge = self._smartphone.get_charge()
+            charge = self._smartphone.get_charge ## is property, so WITHOUT ()
             print(f'Charge level is {charge}%')
         except Exception as error:
             print(error)
@@ -58,6 +58,14 @@ class PhoneManager:
             print(error)
 
 
-
+smart = OnePlus('p10')
+## I imported the class as follows: wrote its name. Ctrl+2times blank
+# (if he gives you a list, choose yours among the) => is added above
+phone = PhoneManager(smart)
+phone.turn_on()
+phone.get_charge()
+phone.charge(10)
+phone.play(20)
+phone.get_charge()
 
 
