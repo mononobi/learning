@@ -37,11 +37,12 @@
       if both play lists have the same tracks.
       (do not use loop for detection, think about what you've learned on the last session).
 
-    - when we sum two play lists, it should return a play list object with
+    - when we sum two play lists, it should return a new play list object with
       all the tracks of both play lists (removing duplicates).
 
-    - when we sum a play list with a music track, it should return a play list object
-      with the music track added to it (if it's not already added)
+    - when we sum a play list with a music track, it should return a new play list object
+      with all the tracks of original play list and the music track added
+      to it (if it's not already added).
 
     - a function to add new tracks to the play list (if it's not already added)
 
