@@ -11,6 +11,7 @@
     - song (it must be a random string representing the real sound stream)
 
 * music track should have these functionalities:
+
     - when making the hash of a music track, it must be generated
       using name, duration, year and song.
 
@@ -30,6 +31,7 @@
     - duration (total duration of all tracks)
 
 * play list should have these functionalities:
+
     - when making the hash of a play list, it must be generated using
       the hash of all its tracks.
 
