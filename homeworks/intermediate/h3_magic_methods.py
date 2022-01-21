@@ -27,7 +27,7 @@
 * play list should have common attributes such as (you can add more if you want):
 
     - tracks (it's a list)
-    - total duration
+    - duration (total duration of all tracks)
 
 * play list should have these functionalities:
     - when making the hash of a play list, it must be generated using
