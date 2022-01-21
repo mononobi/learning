@@ -48,6 +48,12 @@
 
     - a function to play the play list, and print the song of each track.
 
+    - when printing a play list, it should print in this format:
+    1. <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
+    2. <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
+    3. <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
+    4. ...
+
 * consider all available options when implementing, and use the
   correct option (property, attribute, access levels, ...)
 
