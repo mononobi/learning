@@ -6,7 +6,7 @@
 
     - name
     - duration (in seconds)
-    - singers
+    - singers (it's a list)
     - year
     - song (it must be a random string representing the real sound stream)
 
@@ -26,7 +26,7 @@
 
 * play list should have common attributes such as (you can add more if you want):
 
-    - tracks
+    - tracks (it's a list)
     - total duration
 
 * play list should have these functionalities:
