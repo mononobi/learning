@@ -19,6 +19,9 @@
 
     - when we sum two music tracks, it should return a play list object containing both tracks.
 
+    - when printing a music track, it should print in this format:
+      <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
+
 2. implement a class representing a play list:
 
 * play list should have common attributes such as:
