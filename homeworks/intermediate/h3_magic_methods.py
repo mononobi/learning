@@ -34,7 +34,7 @@
       the hash of all its tracks.
 
     - when comparing two play lists for equality, it should return True
-      if both play lists have same tracks.
+      if both play lists have the same tracks.
       (do not use loop for detection, think about what you've learned on the last session).
 
     - when we sum two play lists, it should return a play list object with
