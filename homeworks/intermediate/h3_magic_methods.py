@@ -2,7 +2,7 @@
 """
 1. implement a class representing a music track:
 
-* music track should have common attributes such as:
+* music track should have common attributes such as (you can add more if you want):
 
     - name
     - duration (in seconds)
@@ -24,7 +24,7 @@
 
 2. implement a class representing a play list:
 
-* play list should have common attributes such as:
+* play list should have common attributes such as (you can add more if you want):
 
     - tracks
     - total duration
