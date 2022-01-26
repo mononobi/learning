@@ -4,6 +4,8 @@
 2. hashing
 """
 
+
+
 a = 1
 b = 2
 sum = a + b
@@ -14,7 +16,7 @@ ab = abs(sum)
 ab = sum.__abs__()
 
 
-boo = bool(sum)
+boo = bool(sum)  ##--##-- What is this part??
 boo = b != 2
 sum.__bool__()
 
@@ -25,6 +27,9 @@ equal = a.__eq__(b)
 z = 54
 f = 54
 
+
+my_h = hash(5)  ## its HASH is himslef
+print(my_h)
 
 my_h = hash(5.5)
 print(my_h)
@@ -70,6 +75,7 @@ b = Test()
 
 print(id(a))
 print(id(b))
+print('here')
 print(a is b)
 print(a == b)
 
@@ -87,11 +93,13 @@ print(9999999999999 == 9999999999999)
 a = Test()
 b = Test()
 
+print('here2')
 print(a is b)
 print(a == b)
 
 a = Test('p1')
 b = Test('p2')
+print('== and IS are overriden')
 print(a == 1)
 print(a == b)
 
