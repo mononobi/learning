@@ -61,6 +61,7 @@ class Husky(Dog):
         self._energy = self._energy - 1
 
 
+
 class Frog(Animal):
     def make_sound(self):
         print('Frog is Ghooring.')
@@ -88,6 +89,9 @@ class Snake(Animal):
 
         super().eat(food)
 
+    def make_sound(self):
+        pass
+
 
 noah = Animal('Noah')
 dog1 = Dog('Rex')
@@ -96,14 +100,14 @@ husky = Husky('White Teeth')
 frog = Frog('Aunt')
 snake = Snake('Ghashghash')
 
-noah.make_sound()
+##noah.make_sound()
 dog1.make_sound()
 husky.make_sound()
 snake.scare()
 frog.scare()
 
 print('POLYMORPHISM')
-animals = [noah, dog2, dog1, husky, frog, snake]
+animals = [dog2, dog1, husky, frog, snake]
 for item in animals:
     if isinstance(item, Animal):
         item.scare()

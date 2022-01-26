@@ -74,10 +74,10 @@ class BMW(Car):
     def brake(self):
         self._check()
 
-        self.__transmit()  # THIS IS ALSO WRONG
+        self.__transmit()  # THIS IS ALSO WRONG  --##--## Why?
 
     # THIS IS ALSO WRONG
-    # def __transmit(self):
+    # def __transmit(self):   --##--## Why? For it overriden the parent's private attribute??
     #     pass
 
     @staticmethod
