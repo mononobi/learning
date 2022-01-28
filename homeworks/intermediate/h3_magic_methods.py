@@ -61,14 +61,17 @@ class music_track():
         def __eq__(self, other):
             if not isinstance(other, music_track):
                 return False
-            if __hash__(self) == __hash__(other):
-                return True
-            return False
+            ##if __hash__(self) == __hash__(other):
+            if not (self.__name == other.__name):
+                return False
+            return True
 
 
-my_track = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+my_track   = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
 your_track = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
 
+print(isinstance(my_track, music_track))
+print(isinstance(your_track, music_track))
 print(hash(my_track))
 print(hash(your_track))
 print(my_track == your_track)
