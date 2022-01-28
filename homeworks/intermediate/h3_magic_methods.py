@@ -22,7 +22,72 @@
 
     - when printing a music track, it should print in this format:
       <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
+ """
 
+
+import homeworks.intermediate.utils as utils
+
+
+class music_track():
+    def __init__(self, name, duration, singers, year, song):
+        utils.assert_positive_number(duration)
+        utils.is_list(singers)
+        utils.assert_valid_year(year)
+        self.__name = name
+        self.__duration = duration
+        self.__singers = singers
+        self.__year = year
+        self.__song = song
+
+        @property
+        def name(self):
+            return self.__name
+
+        @property
+        def duration(self):
+            return self.__duration
+
+        @property
+        def singers(self):
+            return self.__singers
+
+        @property
+        def year(self):
+            return self.__year
+
+        def __hash__(self):
+            return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song)
+
+        def __eq__(self, other):
+            if not isinstance(other, music_track):
+                return False
+            if __hash__(self) == __hash__(other):
+                return True
+            return False
+
+
+my_track = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+your_track = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+
+print(hash(my_track))
+print(hash(your_track))
+print(my_track == your_track)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 2. implement a class representing a play list:
 
 * play list should have common attributes such as (you can add more if you want):
