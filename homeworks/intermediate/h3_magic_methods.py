@@ -61,8 +61,8 @@ class music_track():
     def __eq__(self, other):
         if not isinstance(other, music_track):
             return False
-        ##if __hash__(self) == __hash__(other):
-        if not (self.__name == other.__name):
+        ##if hash(self) == hash(other):
+        if not (hash(self) == hash(other)):
             return False
         return True
 
