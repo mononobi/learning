@@ -39,32 +39,32 @@ class music_track():
         self.__year = year
         self.__song = song
 
-        @property
-        def name(self):
-            return self.__name
+    @property
+    def name(self):
+        return self.__name
 
-        @property
-        def duration(self):
-            return self.__duration
+    @property
+    def duration(self):
+        return self.__duration
 
-        @property
-        def singers(self):
-            return self.__singers
+    @property
+    def singers(self):
+        return self.__singers
 
-        @property
-        def year(self):
-            return self.__year
+    @property
+    def year(self):
+        return self.__year
 
-        def __hash__(self):
-            return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song)
+    def __hash__(self):
+        return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song)
 
-        def __eq__(self, other):
-            if not isinstance(other, music_track):
-                return False
-            ##if __hash__(self) == __hash__(other):
-            if not (self.__name == other.__name):
-                return False
-            return True
+    def __eq__(self, other):
+        if not isinstance(other, music_track):
+            return False
+        ##if __hash__(self) == __hash__(other):
+        if not (self.__name == other.__name):
+            return False
+        return True
 
 
 my_track   = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
