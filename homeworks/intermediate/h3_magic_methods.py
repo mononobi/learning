@@ -28,7 +28,7 @@
 import homeworks.intermediate.utils as utils
 
 
-class music_track():
+class MusicTrack():
     def __init__(self, name, duration, singers, year, song):
         utils.assert_positive_number(duration)
         utils.is_list(singers)
