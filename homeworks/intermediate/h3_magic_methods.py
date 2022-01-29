@@ -59,19 +59,18 @@ class MusicTrack():
         return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song)
 
     def __eq__(self, other):
-        if not isinstance(other, music_track):
+        if not isinstance(other, MusicTrack):
             return False
-        ##if hash(self) == hash(other):
         if not (hash(self) == hash(other)):
             return False
         return True
 
 
-my_track   = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
-your_track = music_track('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+my_track   = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+your_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
 
-print(isinstance(my_track, music_track))
-print(isinstance(your_track, music_track))
+print(isinstance(my_track, MusicTrack))
+print(isinstance(your_track, MusicTrack))
 print(hash(my_track))
 print(hash(your_track))
 print(my_track == your_track)
