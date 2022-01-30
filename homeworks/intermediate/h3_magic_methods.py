@@ -23,10 +23,8 @@
     - when printing a music track, it should print in this format:
       <NAME * YEAR * DASH_SEPARATED_SINGERS * DURATION>
  """
-
-
 import homeworks.intermediate.utils as utils
-
+import random
 
 class MusicTrack():
     def __init__(self, name, duration, singers, year, song):
@@ -65,15 +63,35 @@ class MusicTrack():
             return False
         return True
 
+    def __add__(self, other):
+        if not isinstance(other, MusicTrack):
+            raise Exception('Only music tracks can be added up')
+        ##return self.__song, other.__song
+        track1 = dict(Name=self.__name, duration=self.__duration, singers=self.__singers, Year=self.__year, song=self.__song)
+        track2 = dict(Name=other.__name, duration=other.__duration, singers=other.__singers, Year=other.__year, song=other.__song)
+        return track1, track2
+
+
+
+    def __str__(self):
+        singers_str = '-'.join(sorted(self.__singers))
+        message = '<{NAME} * {YEAR} * {DASH_SINGERS} * {DURATION}>'
+        return message.format(NAME=self.__name, YEAR=self.__year, DASH_SINGERS=singers_str, DURATION=self.__duration)
+
+
 
 my_track   = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
 your_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+my_track2   = MusicTrack('Sal Sal in chand sal', 600 , ['Hayede', 'Ebi'], 1980, ''.join(random.choice('abcde') for _ in range(4)))
 
-print(isinstance(my_track, MusicTrack))
-print(isinstance(your_track, MusicTrack))
+##print(isinstance(my_track, MusicTrack))
+##print(isinstance(your_track, MusicTrack))
 print(hash(my_track))
 print(hash(your_track))
 print(my_track == your_track)
+print(my_track + my_track2)
+print(my_track)
+print(my_track2)
 
 
 
