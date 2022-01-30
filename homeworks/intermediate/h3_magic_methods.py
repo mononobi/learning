@@ -66,10 +66,10 @@ class MusicTrack():
     def __add__(self, other):
         if not isinstance(other, MusicTrack):
             raise Exception('Only music tracks can be added up')
-        ##return self.__song, other.__song
-        track1 = dict(Name=self.__name, duration=self.__duration, singers=self.__singers, Year=self.__year, song=self.__song)
-        track2 = dict(Name=other.__name, duration=other.__duration, singers=other.__singers, Year=other.__year, song=other.__song)
-        return track1, track2
+        ##track1 = dict(Name=self.__name, duration=self.__duration, singers=self.__singers, Year=self.__year, song=self.__song)
+        ##track2 = dict(Name=other.__name, duration=other.__duration, singers=other.__singers, Year=other.__year, song=other.__song)
+        ##return track1, track2
+        return self, other
 
 
 
