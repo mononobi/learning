@@ -26,7 +26,8 @@
 import homeworks.intermediate.utils as utils
 import random
 
-class MusicTrack():
+
+class MusicTrack:
     def __init__(self, name, duration, singers, year, song):
         utils.assert_positive_number(duration)
         utils.is_list(singers)
@@ -53,8 +54,13 @@ class MusicTrack():
     def year(self):
         return self.__year
 
+    @property
+    def song(self):
+        return self.__song
+
     def __hash__(self):
-        return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song)
+       ## return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song) # no need for str und concat
+       return hash((self.__name, self.__duration, self.__year, self.__song))
 
     def __eq__(self, other):
         if not isinstance(other, MusicTrack):
@@ -69,9 +75,7 @@ class MusicTrack():
         ##track1 = dict(Name=self.__name, duration=self.__duration, singers=self.__singers, Year=self.__year, song=self.__song)
         ##track2 = dict(Name=other.__name, duration=other.__duration, singers=other.__singers, Year=other.__year, song=other.__song)
         ##return track1, track2
-        return self, other
-
-
+        return self, other # first learn music playlist and then do it
 
     def __str__(self):
         singers_str = '-'.join(sorted(self.__singers))
@@ -79,10 +83,9 @@ class MusicTrack():
         return message.format(NAME=self.__name, YEAR=self.__year, DASH_SINGERS=singers_str, DURATION=self.__duration)
 
 
-
-my_track   = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
+my_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
 your_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
-my_track2   = MusicTrack('Sal Sal in chand sal', 600 , ['Hayede', 'Ebi'], 1980, ''.join(random.choice('abcde') for _ in range(4)))
+my_track2 = MusicTrack('Sal Sal in chand sal', 600 , ['Hayede', 'Ebi'], 1980, ''.join(random.choice('abcde') for _ in range(4)))
 
 ##print(isinstance(my_track, MusicTrack))
 ##print(isinstance(your_track, MusicTrack))
@@ -92,19 +95,6 @@ print(my_track == your_track)
 print(my_track + my_track2)
 print(my_track)
 print(my_track2)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 """
@@ -146,3 +136,38 @@ print(my_track2)
 
 happy coding :)
 """
+
+class Playlist:
+    def __init__(self, tracks):
+        self._duration = 0
+        utils.is_list(tracks)
+        for index, track in enumerate(tracks):
+            if not isinstance(track, MusicTrack):
+                raise Exception('Object ' + str(index+1) + ' of the list is not a music track!')
+            self._duration += track.duration
+        self._tracks = tracks
+
+    @property
+    def duration(self):
+        return self._duration
+
+    @property
+    def tracks(self):
+        return self._tracks
+
+    @staticmethod
+    def add_music_track(self, new_track):
+        if not isinstance(new_track, MusicTrack):
+            raise Exception('Only music tracks are allowed in playlists')
+        if not (new_track in self._tracks):
+            self._tracks.append(new_track)
+
+
+
+
+
+
+#my_playlist = Playlist([my_track, your_track])
+#print(my_playlist.duration)
+
+
