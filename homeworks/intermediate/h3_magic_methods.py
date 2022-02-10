@@ -59,7 +59,7 @@ class MusicTrack:
         return self.__song
 
     def __hash__(self):
-       ## return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song) # no need for str und concat
+       #return hash(self.__name + str(self.__duration) + str(self.__year) + self.__song) # no need for str und concat
        return hash((self.__name, self.__duration, self.__year, self.__song))
 
     def __eq__(self, other):
@@ -83,18 +83,7 @@ class MusicTrack:
         return message.format(NAME=self.__name, YEAR=self.__year, DASH_SINGERS=singers_str, DURATION=self.__duration)
 
 
-my_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
-your_track = MusicTrack('hamegi Salam', 600 , ['Mahasti'], 1985, 'song')
-my_track2 = MusicTrack('Sal Sal in chand sal', 600 , ['Hayede', 'Ebi'], 1980, ''.join(random.choice('abcde') for _ in range(4)))
 
-##print(isinstance(my_track, MusicTrack))
-##print(isinstance(your_track, MusicTrack))
-print(hash(my_track))
-print(hash(your_track))
-print(my_track == your_track)
-print(my_track + my_track2)
-print(my_track)
-print(my_track2)
 
 
 """
@@ -137,6 +126,7 @@ print(my_track2)
 happy coding :)
 """
 
+
 class Playlist:
     def __init__(self, tracks):
         self._duration = 0
@@ -162,12 +152,34 @@ class Playlist:
         if not (new_track in self._tracks):
             self._tracks.append(new_track)
 
+    def __str__(self):
+        output = []
+        for index, track in enumerate(self._tracks):
+            output.append(str(index+1) + '.' + MusicTrack.__str__(track))
+        return '\n'.join(output)
 
+    def play(self):
+        for index, track in enumerate(self._tracks):
+            print(track.song)
 
+my_track1 = MusicTrack('hamegi Salam', 660 , ['Hayede'], 1985, 'song')
+my_track2 = MusicTrack('hamegi Salam', 660 , ['Hayede'], 1985, 'song')
 
+your_track = MusicTrack('Ashegh Nashode', 600 , ['Mahasti'], 1990, 'song')
+my_track = MusicTrack('Sal Sal in chand sal', 600 , ['Hayede', 'Ebi'], 1980, ''.join(random.choice('abcde') for _ in range(4)))
 
+print(hash(my_track1))
+print(hash(my_track2))
+#print(hash(your_track))
+print(my_track == your_track)
+print(my_track2 == my_track1)
+#print(my_track + my_track2)
+#print(my_track)
+#print(my_track2)
 
-#my_playlist = Playlist([my_track, your_track])
-#print(my_playlist.duration)
+my_playlist = Playlist([my_track, your_track])
+print(my_playlist.duration)
 
+print(my_playlist)
 
+my_playlist.play()
