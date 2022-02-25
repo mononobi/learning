@@ -158,6 +158,13 @@ class Playlist:
             output.append(str(index+1) + '.' + MusicTrack.__str__(track))
         return '\n'.join(output)
 
+    def __hash__(self):
+        output =[]
+        for index, track in enumerate(self._tracks):
+            output.append(MusicTrack.__hash__(track))
+        output = tuple(output)
+        return hash(output)
+
     def play(self):
         for index, track in enumerate(self._tracks):
             print(track.song)
@@ -183,3 +190,5 @@ print(my_playlist.duration)
 print(my_playlist)
 
 my_playlist.play()
+
+print(hash(my_playlist))
