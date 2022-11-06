@@ -33,18 +33,6 @@ sample_dict1 = dict(current_hour=get_current_hour,
 
 # TODO: Your code goes here:
 
-
-def find_callables(a_dict):
-    dict_result = {}
-    for key, value in a_dict.items():
-        if callable(value):
-            dict_result[key] = value()
-    return dict_result
-
-
-print(find_callables(sample_dict1))
-
-
 """
 2. write a function which takes a dict as an input and loops through the
    items of the input dict and converts all keys to upper case and removes
@@ -60,17 +48,6 @@ sample_dict2 = dict(name='Jack', Age=23, ADDRESS='Berlin',
 
 # TODO: Your code goes here:
 
-
-def get_it_up(b_dict):
-    dict_result = {}
-    for key, value in b_dict.items():
-        dict_result[key.upper()] = value
-    return dict_result
-
-
-print(get_it_up(sample_dict2))
-
-
 """
 3. write a function which takes a list of numbers. the list could have duplicate
    values int it. the function must return a list of input items but without any 
@@ -82,15 +59,6 @@ print(get_it_up(sample_dict2))
 sample_list3 = [-9, 34, 7, 9, 0, -9, 34, 2, 4, 9, 8, 11, 7, 7, -34, 9, 30]
 
 # TODO: Your code goes here:
-
-
-def conv2set(c_list):
-    the_set = set(c_list)
-    return list(the_set).sort()
-
-
-print(conv2set(sample_list3))
-
 
 """
 4. write a function which takes a list and a set of numbers as input and 
@@ -109,17 +77,6 @@ sample_set4_not_equal = {0, 9, 8, 7, 6, 1, 2, 3}
 
 # TODO: Your code goes here:
 
-
-def compare(listi, seti):
-    return conv2set(listi) == conv2set(seti)
-
-
-print(compare(sample_list4_equal, sample_set4_equal))
-
-
-print(compare(sample_list4_not_equal, sample_set4_not_equal))
-
-
 """
 5. write a function which takes a dict and another single value as key name.
    if the provided key name is present in the input dict, it must return the value
@@ -135,18 +92,6 @@ sample_dict5 = dict(name='Cameron', age=50, unit='dev',
 
 # TODO: Your code goes here:
 
-
-def get_value(a_dict, a_key):
-    the_value = a_dict.get(a_key, 'The key "' + a_key + '" was not found.')
-    return the_value
-
-
-print(get_value(sample_dict5, 'age'))
-
-
-print(get_value(sample_dict5, 'address'))
-
-
 """
 6. write a function which takes two lists as an input.
    it must return the list of values which are present in both lists.
@@ -161,15 +106,3 @@ sample_list6_3 = ['rabbit', 'lion', 'goat', 'mouse', 'cat', 'wolf']
 sample_list6_4 = ['lion', 'bird', 'elephant', 'Rabbit', 'deer', 'snake', 'rabbit']
 
 # TODO: Your code goes here:
-
-
-def find_commons(a_list, b_list):
-    a_set = conv2set(a_list)
-    b_set = conv2set(b_list)
-    the_set = a_set.intersection(b_set)
-    return list(the_set)
-
-
-print(find_commons(sample_list6_1, sample_list6_2))
-
-print(find_commons(sample_list6_3, sample_list6_4))

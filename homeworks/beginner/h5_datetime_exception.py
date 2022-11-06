@@ -17,7 +17,6 @@
 from datetime import datetime, date, time, timedelta
 import math
 
-
 objects = ['name', 10.4, True, 98, -9, 'Tree', [], datetime.now(),
            None, (1, 3, 4), {'a', 'b', 3}, date.today(), False, 0, bool,
            time(hour=13, second=10), int, [tuple, set], 'age', dict(),
@@ -31,33 +30,7 @@ sequences = []
 dictionaries = []
 unknown = []
 
-
-# dt = [d for d in mixed if isinstance(d, (datetime, date, time, timedelta))] # that is the correct way to compare Type, NOT with type castig: type() !!
-# num = [n for n in mixed if type(n) in (int, float)]
-
-
 # TODO: Your code goes here:
-#from datetime import datetime, date, time, timedelta
-
-def sorting_out():
-    #result = []
-    for item in objects:
-        if isinstance(item, (datetime, date, time, timedelta)):
-            date_times.append(item)
-        elif isinstance(item, (int, float)) and not isinstance(item, bool): # beacuase bool is a sub type from int
-            numbers.append(item)
-        elif isinstance(item, str):
-            strings.append(item)
-        elif isinstance(item, (list, set, tuple)):
-            sequences.append(item)
-        elif isinstance(item, dict):
-            dictionaries.append(item)
-        else:
-            unknown.append(item)
-
-
-sorting_out()
-
 
 """
 2. write a function to return a message showing the count of items in 
@@ -66,63 +39,24 @@ sorting_out()
 
 # TODO: Your code goes here:
 
-
-def length():
-    num_num = len(numbers)
-    num_str = len(strings)
-    num_dt = len(date_times)
-    num_dic = len(dictionaries)
-    num_seq = len(sequences)
-    num_na = len(unknown)
-
-    message = "Number of items:\n  Numbers:{num_num}\n  Strings:{num_str}\n  Date&Time:{num_dt}\n" \
-              "  Dictionaries:{num_dic}\n  Sequences:{num_seq}\n  Unknown:{num_na}"
-    message = message.format(num_num=num_num, num_str=num_str, num_dt=num_dt, num_dic=num_dic, num_seq=num_seq, num_na=num_na)
-    print(message)
-
-# call
-length()
-
 """
 3. write a function to return a message showing the items of date_times list separated 
    by double dashes `--`.
 """
 
-
 # TODO: Your code goes here:
-# keyword: join
-
-def message_list(alist):
-    message = '--'.join([str(n) for n in alist])
-    return message
-
-print(message_list(date_times))
 
 """
 4. write a function to get the datetime of tomorrow from now.
 """
 
 # TODO: Your code goes here:
-# keyword: check the methods of Datetime and Timedelta (choose, ctrl, click)
-def tomorrowi():
-    now = datetime.now()
-    tomorrow = now + timedelta(days=1)
-    return tomorrow
-
-
-print(tomorrowi())
 
 """
 5. write a function which takes a single date object and returns the date of 7 days ago.
 """
 
 # TODO: Your code goes here:
-def week_ago(dt):
-    #now = date.now()
-    last_week = dt + timedelta(days=-7)
-    return last_week
-
-print(week_ago(date.today()))
 
 """
 6. write a function which takes two datetime objects and returns the difference 
@@ -130,13 +64,6 @@ print(week_ago(date.today()))
 """
 
 # TODO: Your code goes here:
-def dt_dif(dt1, dt2):
-    dif = dt1 - dt2
-    dif_sec = dif.total_seconds()
-    return abs(int(dif_sec))
-
-
-print(dt_dif(datetime.now(), datetime(2020, 2, 11)))
 
 """
 7. we have a time object and a list of datetime objects.
@@ -154,16 +81,6 @@ datetime_items = [datetime.now(),
                   datetime(year=1990, month=8, day=14, hour=16, minute=1, second=1)]
 
 # TODO: Your code goes here:
-def bigger_times():
-    lt = []
-    for t in datetime_items:
-        if t.time() > single_time:
-            lt.append(t)
-    return lt
-
-
-print(bigger_times())
-
 
 """
 8. we have a function which takes a number as input named 'validate_number'.
@@ -210,17 +127,3 @@ def validate_number(value):
 
 
 # TODO: Your code goes here:
-def check_my_list():
-    for i in numbers_list:
-        try:
-            output = validate_number(i)
-            print(output)
-        except (NegativeNumberError, InvalidNumberError) as err:
-            print(err)
-            continue
-        except NoneNumberError:
-            continue
-
-
-check_my_list()
-

@@ -13,37 +13,3 @@ considered as 'add'.
 calculator function must return the result of each operation.
 then you should print the result of calculator method.
 """
-
-
-def sum(num1, num2):
-    return num1+num2
-
-def sub(num1, num2):
-    return num1 - num2
-
-def div(num1, num2):
-    if num2 is None or num2 == 0:
-        raise Exception('Cannot be divided by Zero!!!!!!')
-    ##else:
-    return num1/num2
-
-def mul(num1, num2):
-    return num1*num2
-
-#print(mul(1,3))
-
-def calc(num1,num2,op='+'):
-    if op=='-':
-        result = sub(num1,num2)
-    elif op=='*':
-        result = mul(num1,num2)
-    elif op=='/':
-        result = div(num1, num2)
-    else:
-        result = sum(num1, num2)
-    return result
-
-# Example: Dividing 1 by 5
-print(calc(1,5,'/'))
-print(calc(1,0,'/'))
-
