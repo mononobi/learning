@@ -77,4 +77,4 @@ print('RIGHT STRIP:', z.rstrip('.'))
 
 # fill with zero to a specified length.
 hour = '1'
-print('ZFILL:', hour.zfill(4))
+print('ZFILL:', hour.zfill(2))

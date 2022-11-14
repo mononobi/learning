@@ -9,7 +9,7 @@ we have a list of first names and another list of last names.
 3. write a method to sort the first_names ascending and last_names descending.
 """
 
-## Q: why a method? isnt it a function?
+# Q: why a method? isn't it a function? Be cool
 
 first_names = ['azin', 'tarek', 'sheida', 'mohamad',
                'shiva', 'faeze', 'saleh', 'andy', 'reza', 'abi', 'azin']
@@ -17,20 +17,34 @@ first_names = ['azin', 'tarek', 'sheida', 'mohamad',
 last_names = ['kamali', 'krohn', 'nobakht', 'nobakht', 'roostaei', 'fallah', 'noorian']
 
 
-full_names = []
-i = 0
+def concat_lists(list1, list2):
+    """"gets two lists, first name as first parameter and concatinates their elements, upto the shrter list"""
 
-if len(first_names) < len(last_names):
-    for first_name in first_names:
-        full_name = f"{first_name.title()} {last_names[i].title()}"
-        full_names.append(full_name)
-        i += 1
+    full_names = []
+    firstname_first = True
 
-else:
-    for last_name in last_names:
-        full_name = f"{first_names[i].title()} {last_name.title()}"
-        full_names.append(full_name)
-        i += 1
+    if len(list1) < len(list2):
+        smaller_list = list1
+        bigger_list = list2
+    else:
+        smaller_list = list2
+        bigger_list = list1
+        firstname_first = False
 
-for full_name in full_names:
-    print(full_name)
+    i = 0
+
+    for smaller_list_item in smaller_list:
+        if firstname_first:
+            full_name = f"{smaller_list_item.title()} {bigger_list[i].title()}"
+            full_names.append(full_name)
+            i += 1
+        else:
+            full_name = f"{bigger_list[i].title()} {smaller_list_item.title()}"
+            full_names.append(full_name)
+            i += 1
+
+    print(full_names)
+    return (full_names)
+
+
+concat_lists(first_names, last_names)
