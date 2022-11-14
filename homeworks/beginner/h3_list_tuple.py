@@ -90,7 +90,7 @@ print ('min and max of list: ', min_max_list(numbers_list))
 # 6th assignment:
 
 def cumulative_list(list1, list2):
-    new_list = list1 +list2
+    new_list = list1 + list2
     return new_list
 
 

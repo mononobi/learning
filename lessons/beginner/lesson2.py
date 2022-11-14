@@ -20,8 +20,6 @@ def divide(num1, num2):
     if num2 is None or num2 == 0:
         raise Exception('Divided by null or zero.')
 
-    ##Q: why should we RAISE, when exception is raised in execution?
-
     return num1 / num2
 
 
