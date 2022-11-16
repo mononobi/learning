@@ -17,6 +17,8 @@ first_names = ['azin', 'tarek', 'sheida', 'mohamad',
 last_names = ['kamali', 'krohn', 'nobakht', 'nobakht', 'roostaei', 'fallah', 'noorian']
 
 
+# 1st assignment:
+
 def concat_lists(list1, list2):
     """"gets two lists, first name as first parameter and concatinates their elements, upto the shrter list"""
 
@@ -46,5 +48,40 @@ def concat_lists(list1, list2):
     print(full_names)
     return (full_names)
 
-
+print('\n1st assignment:')
 concat_lists(first_names, last_names)
+
+
+
+# 2nd assignment:
+
+def print_max_list(list1, list2):
+    """receives two lists and prints the one with max length."""
+
+    if len(list1) >= len(list2):
+        max_length_list = list1
+    else:
+        max_length_list = list2
+
+    print(max_length_list)
+    return max_length_list
+
+print('\n2nd assignment:')
+print_max_list(first_names, last_names)
+
+# 3rd assignment:
+
+def sort_lists_ascending_1st_descending_2nd(list1, list2):
+    """receives two lists and sorts the first list ascending and second list descending, prints and returns both"""
+
+    sorted_first_list = sorted(list1)
+    sorted_second_list = sorted(list2, reverse=True)
+
+    print('first list sorted ascending:\n', sorted_first_list)
+    print('second list sorted descending:\n', sorted_second_list)
+
+    return sorted_first_list, sorted_second_list
+
+
+print('\n3rd assignment:')
+sort_lists_ascending_1st_descending_2nd(first_names, last_names)
