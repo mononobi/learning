@@ -15,6 +15,7 @@ alternate = value.capitalize().lower()
 print(value, converted)
 print(value.casefold())
 
+# Q: What is the difference between lower() and casefold()? casefold is more aggressive (in German for example)
 
 # center will pad string from both ends.
 value2 = 'JaCK waldon'

@@ -53,6 +53,8 @@ print(nums)
 nums.insert(3000, 500)
 print(nums)
 
+# Can use -1 index as last index.
+
 
 # get an item in given index and also remove it from the list itself.
 item = nums.pop(0)
@@ -103,6 +105,8 @@ print('GET_INDEX:', value)
 # delete an item in specified index.
 del nums[2]
 print(nums)
+
+# Q: what is 'del'? a keyword. why not in builtins?
 
 print([1, 2] == [2, 1])
 print([1, 2] == [1, 2])
