@@ -12,10 +12,19 @@ def show_help_get_inputs_show_result():
 
     try:
         print(h1_calculator.calculator_func.__doc__)
+        # value1 = input("Enter number one: ")
+        # if value1 in ('$', '*', '+'):
+        #     pass
 
-        number_one = int(input("Enter number one: "))
-        number_two = int(input('Enter number two: '))
+        number_one = float(input("Enter number one: "))
+        number_two = float(input('Enter number two: '))
         operator = input('Which operator? (a, b, c, d) ')
+
+        if number_one == int(number_one):
+            number_one = int(number_one)
+
+        if number_two == int(number_two):
+            number_two = int(number_two)
 
         # Q: how can we specify int and float from input string? note: int on float generates error.
 
@@ -33,8 +42,11 @@ def show_help_get_inputs_show_result():
 
 
 if __name__ == '__main__':
-    repeat = True
-    while repeat:
+    while True:
         show_help_get_inputs_show_result()
-        repeat = bool(int(input('Enter anything to continue another calculation, Enter 0 (zero key) to exit: ')))
+        result = input('Enter anything to continue another calculation, Enter 0 (zero key) to exit: ')
+        if result == '0':
+            break
 
+a = []
+b = [1, 2]

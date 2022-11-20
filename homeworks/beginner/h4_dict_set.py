@@ -40,9 +40,17 @@ def make_callable_value_dict(dict1):
 
     new_dict = {}
 
+    for key in dict1:
+        pass
+
     for key, value in dict1.items():
-        if callable(dict1[key]):
-            new_dict.setdefault(key, value())
+        if callable(value):
+            new_dict[key] = value()
+            new_dict.update(name='ali')
+
+            name = dict1['name']
+            name = dict1.get('name', 2)
+            name = dict1.setdefault('name', 2)
 
     print(new_dict)
 
@@ -71,9 +79,13 @@ sample_dict2 = dict(name='Jack', Age=23, ADDRESS='Berlin',
 
 def convert_keys_uppercase_dictionary(dict1):
     """takes one dictionary and convert keys to uppercase."""
-    new_dict = {}
+    new_dict = dict(dict1)
 
     for key, value in dict1.items():
+        new_dict[key.upper()] = value
+
+    for key, value in dict1.items():
+        new_dict.pop(key, None)
         new_dict[key.upper()] = value
 
     print(new_dict)
@@ -108,7 +120,9 @@ def make_list_unique(list1):
 
     print(new_list)
 
-    return new_list
+    unique_items = set(list1)
+
+    return list(unique_items)
 
 
 print('\n3rd Assignment result:')
@@ -136,11 +150,16 @@ sample_set4_not_equal = {0, 9, 8, 7, 6, 1, 2, 3}
 def check_equality_list_set(list1, set1):
     """takes a list and a set, and evaluates if they are the same."""
     set_of_list = set(list1)
+
     if set_of_list == set1:
         print('True')
         return True
     print('False')
-    return False
+    # return False
+
+    result = set_of_list == set1
+    print(result)
+    return result
 
 print('\n4th Assignment result:')
 check_equality_list_set(sample_list4_equal, sample_set4_equal)
@@ -162,12 +181,16 @@ sample_dict5 = dict(name='Cameron', age=50, unit='dev',
 
 # TODO: Your code goes here:
 
-def check_value_in_dict(dict1, value1):
+def check_value_in_dict(dict1, key1):
     """takes a dictionary and a value and returns its value"""
-    if value1 in dict1.keys():
-        return dict1[value1]
-    else:
-        return f"The value provided ({value1}) is not present in the dictionary."
+    # if value1 in dict1.keys():
+    #     return dict1[value1]
+    # else:
+    #     return f"The value provided ({value1}) is not present in the dictionary."
+    #
+
+    return dict1.get(key1,
+                     f"The value provided ({key1}) is not present in the dictionary.")
 
 
 print('\n5th Assignment result:')
@@ -195,8 +218,8 @@ def make_intersection_of_lists(list1, list2):
     """Takes two lists and returns a list of the same items in both."""
     set1 = set(list1)
     set2 = set(list2)
-    new_tuple = set1.intersection(set2)
-    return list(new_tuple)
+    new_set = set1.intersection(set2)
+    return list(new_set)
 
 print('\n6th Assignment result:')
 print(make_intersection_of_lists(sample_list6_1, sample_list6_2))

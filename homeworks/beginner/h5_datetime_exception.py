@@ -38,6 +38,21 @@ dict_of_lists = {'date_time': date_times,
                  'sequences': sequences,
                  'dictionaries': dictionaries,
                  'unknown': unknown}
+class Animal:
+    pass
+
+class Sheep(Animal):
+    pass
+
+
+class WildSheep(Sheep):
+    pass
+
+
+sheep = Sheep()
+print('HERE ', type(sheep) == Animal)
+print('HERE ', isinstance(sheep, Animal))
+print('HERE ', isinstance(sheep, Sheep))
 
 
 def categorize_objects(objects1):
@@ -46,13 +61,36 @@ def categorize_objects(objects1):
     for item in objects1:
         if type(item) in (datetime, date, time, timedelta):
             dict_of_lists['date_time'].append(item)
-        elif type(item) in (int, float):
+        elif type(item) in (int, float, bool):
             dict_of_lists['numbers'].append(item)
         elif type(item) == str:
             dict_of_lists['strings'].append(item)
         elif type(item) in (list, set, tuple):
             dict_of_lists['sequences'].append(item)
         elif type(item) == dict:
+            dict_of_lists['dictionaries'].append(item)
+        else:
+            dict_of_lists['unknown'].append(item)
+
+    for key, value in dict_of_lists.items():
+        print(f'{key}: {value}')
+
+    return None
+
+
+def categorize_objects_v2(objects1):
+    """recieves a list of objects and categorize each type in a seperate list."""
+
+    for item in objects1:
+        if isinstance(item, (datetime, date, time, timedelta)):
+            dict_of_lists['date_time'].append(item)
+        elif isinstance(item, (int, float)) and not isinstance(item, bool):
+            dict_of_lists['numbers'].append(item)
+        elif isinstance(item, str):
+            dict_of_lists['strings'].append(item)
+        elif isinstance(item, (list, set, tuple)):
+            dict_of_lists['sequences'].append(item)
+        elif isinstance(item, dict):
             dict_of_lists['dictionaries'].append(item)
         else:
             dict_of_lists['unknown'].append(item)
@@ -75,7 +113,7 @@ categorize_objects(objects)
 # TODO: Your code goes here:
 
 def count_items_lists(dict_of_lists1):
-    """"count the elements of each list in the dictionary of lists."""
+    """count the elements of each list in the dictionary of lists."""
     for key, value in dict_of_lists1.items():
         print(f'count of elements in {key} list is {len(value)}')
 
@@ -150,7 +188,7 @@ show_date_of_7_days_ago(date1)
 
 def show_diff_of_two_datetimes(datetime1, datetime2):
     """receives 2 dates and shows the difference."""
-    datetime_diff = abs(datetime1 - datetime2)
+    datetime_diff = abs((datetime1 - datetime2).seconds)
     print(datetime_diff)
 
     return datetime_diff
@@ -244,7 +282,8 @@ def validate_number_on_list(list1):
 
     for item in list1:
         try:
-            print(validate_number(item))
+            result = validate_number(item)
+            print(result)
 
         except NoneNumberError:
             continue
