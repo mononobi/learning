@@ -58,3 +58,8 @@ if __name__ == '__main__':
 # dir: show list of all files and folders in current directory.
 
 # python file_name.py: execute a python file.
+
+
+
+# Q: how should I run file with a path on python terminal?
+

@@ -29,8 +29,8 @@ def divide_func(num1, num2):
     """This will return division of first number by second number"""
     try:
         return num1 / num2
-    except:
-        print('put non-zero second number, next time.')
+    except ZeroDivisionError as error_zero:
+        raise error_zero
 
 
 def multiply_func(num1, num2):
@@ -55,6 +55,6 @@ def calculator_func(num1, num2, operator='a'):
         result = add_func(num1, num2)
     return result
 
-print(calculator_func(1,0,'c'))
+# print(calculator_func(1,0,'c'))
 
-print(calculator_func(3,2))
+# print(calculator_func(3,2))
