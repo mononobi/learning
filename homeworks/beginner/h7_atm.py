@@ -74,6 +74,11 @@ def deposit_amount(account_number, amount):
             balance = accounts_storage[account_number]['account_balance']
             balance += amount
             accounts_storage[account_number].update({'account_balance': balance})
+            ###############################################################################
+            # account_info = accounts_storage[account_number]
+            # account_info['account_balance'] = account_info['account_balance'] + amount
+            ####### accounts_storage[account_number] = account_info #######################
+            ###############################################################################
         return None
     else:
         # meaning account not found:
@@ -168,7 +173,9 @@ def run_atm():
             print(error)
 
 
+d = dict(j=1, b=2, c=3)
+for i in sorted(d):
+    print(i, d.get(i))
+
 if __name__ == '__main__':
     run_atm()
-
-
