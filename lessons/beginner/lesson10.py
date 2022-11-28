@@ -61,5 +61,5 @@ if __name__ == '__main__':
 
 
 
-# Q: how should I run file with a path on python terminal?
+# Q: how should I run file with a path on python terminal? No
 

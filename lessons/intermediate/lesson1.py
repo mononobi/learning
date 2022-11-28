@@ -19,10 +19,16 @@ instance1 = Temp()
 
 class Smartphone:
     def __init__(self, brand, model, **options):
+
+        # Q: **options are used?
+
         # these are Smartphone attributes.
         self.brand = brand
         self.model = model
         self._is_on = False
+
+        # Q: When _ is used? for internal use
+
         self._battery = 100
 
     def turn_on(self):

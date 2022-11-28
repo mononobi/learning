@@ -35,6 +35,8 @@ class Animal:
     def make_sound(self):
         raise Exception('I dont know how to make sound')
 
+    # Q: why exception? polimorphism? to act in case that if not implemented  raise error?
+
     def _move(self):
         print('{name} is moving.'.format(name=self._name))
         self._is_hungry = True
@@ -42,6 +44,9 @@ class Animal:
 
 
 class Dog(Animal):
+
+    # Q: not with init?
+
     def make_sound(self):
         print('Dog is barking.')
 
@@ -56,8 +61,11 @@ class Husky(Dog):
         super().eat(food)
         self._energy = self._energy + 1
 
+        # Q: energy increases twice here.
+
     def _move(self):
         super()._move()
+        print('special move')
         self._energy = self._energy - 1
 
 
@@ -68,6 +76,8 @@ class Frog(Animal):
 
     def _jump(self):
         print('Frog is jumping.')
+
+        # Q: _jump for not calling method on instance? bind it to scare?
 
     def scare(self):
         print('Frog is scared.')
@@ -92,6 +102,7 @@ class Snake(Animal):
     def make_sound(self):
         pass
 
+    # Q: If we want animal's scare() but move() from , what should we do? it is ok.
 
 noah = Animal('Noah')
 dog1 = Dog('Rex')

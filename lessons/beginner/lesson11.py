@@ -14,7 +14,7 @@ with open('/home/mono/workspace/learning/files/append.txt', mode='a') as file:
     file.write('line1\r\n')
     file.writelines(['line2\r\n', 'line3\r\n'])
 
-# Q: what can \r do for us? cursor at beginning. but how?
+# Q: what can \r do for us? cursor at beginning. but how? enter character
 
 # read whole file:
 with open('/home/mono/workspace/learning/files/append.txt', mode='r') as file:
