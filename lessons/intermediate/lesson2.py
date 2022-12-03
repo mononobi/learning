@@ -45,7 +45,9 @@ class Animal:
 
 class Dog(Animal):
 
-    # Q: not with init?
+    # Q: not with init? no. when you dont want to change attributes of the parent, you dont need new init.
+    #    but if you are using a new attribute in the child, you should write new init and so you are overwriting
+    #    parent init. so super is needed here.
 
     def make_sound(self):
         print('Dog is barking.')

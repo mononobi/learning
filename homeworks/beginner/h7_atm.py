@@ -153,7 +153,6 @@ def run_atm():
                 if result == -1:
                     print('Not a valid account')
 
-
             elif oper == 4:
                 requested_account = int(input('Please enter account number: '))
                 result = show_balance(requested_account)

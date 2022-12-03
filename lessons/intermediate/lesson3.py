@@ -12,6 +12,8 @@
 # protected: child classes could override them but outer user should not call them.
 # private: child classes should not override them and outer user should not call them.
 
+# Q: outer user should? or could not?
+
 # access levels help us achieve encapsulation.
 
 
@@ -75,6 +77,7 @@ class BMW(Car):
         self._check()
 
         self.__transmit()  # THIS IS ALSO WRONG  --##--## Why?
+        # A: It is a private method.
 
     # THIS IS ALSO WRONG
     # def __transmit(self):   --##--## Why? For it overriden the parent's private attribute??

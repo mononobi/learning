@@ -75,7 +75,6 @@ class Smartphone:
             self._battery_charge = 0
             self.turn_off()
 
-
     def brand(self):
         print(f'This is {self._brand} smartphone.')
 
@@ -120,6 +119,7 @@ class Iphone(Smartphone):
         super().play(minutes)
         print(f'{self._brand} is decharged to {self._battery_charge}%')
 
+
 class Oneplus(Smartphone):
     """Specific smartphone that has behavior in charging and playing"""
 
@@ -137,7 +137,6 @@ class Oneplus(Smartphone):
         self._battery_charge -= round(minutes * self._usage_rate)
         super().play(minutes)
         print(f'{self._brand} is decharged to {self._battery_charge}%')
-
 
 
 # Demonstrate:
@@ -158,7 +157,6 @@ for phone in phones:
     phone.turn_off()
     print('\n')
 
-
 # phone1 = Smartphone('samsung', 's10')
 # phone1.turn_on()
 # phone1.get_charge()
@@ -166,4 +164,3 @@ for phone in phones:
 # phone1.get_charge()
 # phone1.turn_off()
 # print('\n')
-
