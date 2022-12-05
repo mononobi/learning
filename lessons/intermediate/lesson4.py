@@ -9,6 +9,7 @@
 a = 1
 b = 2
 sum = a + b
+# Q: Is it useful here?
 sum = a.__add__(b)
 print(sum)
 
@@ -27,7 +28,7 @@ equal = a.__eq__(b)
 z = 54
 f = 54
 
-
+print('hashes:')
 my_h = hash(5)  ## its HASH is himslef
 print(my_h)
 
@@ -41,7 +42,10 @@ class Test:
     def __init__(self, name='p1'):
         self._name = name
 
+    # Q: here we want to upgrade equality to is?
     def __eq__(self, other):
+
+        # Q: good logic:
         if not isinstance(other, Test):
             return False
 
@@ -53,6 +57,9 @@ class Test:
     def __hash__(self):
         # when we override __eq__, we need to override __hash__
         # to unify the behavior on equality check.
+
+        # Q: WHY?
+
         return hash(self._name)
 
     def __str__(self):
@@ -61,7 +68,7 @@ class Test:
     def __repr__(self):
         return str(self) + super().__repr__()
 
-
+print('point1')
 print(hash(Test))
 print(hash(Test()))
 
@@ -107,6 +114,8 @@ a = Test('p2')
 b = Test('p2')
 print(a == b)
 print(a is b)
+
+# Q: is it because we overrided __hash__??
 print(hash(a), hash(b))
 print(id(a), id(b))
 
@@ -130,8 +139,12 @@ print(repr(a))
 
 # dict keys must be hashable.
 
+
+
+
+# Q: what is () doing here?
 # this will:
 dm = {(): 1}
-
+print(dm)
 # this won't work
 # di = {[]: 1}

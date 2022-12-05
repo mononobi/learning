@@ -1,21 +1,21 @@
-*. running application from command line [intermediate]
-*. commandline actions [intermediate]
-*. object-oriented concept [intermediate]
-*. classes [intermediate]
-*. object initialization (__init__) [intermediate]
-*. polymorphism [professional]
-*. encapsulation [intermediate]
-*. inheritance [intermediate]
-*. abstraction [intermediate]
-*. access level [intermediate]
-*. issubclass method [intermediate]
-*. property, static method [intermediate]
-*. magic methods [intermediate]
-*. hashing and hashable [intermediate]
-*. decorators [intermediate]
+*. running application from command line [intermediate] OK
+*. commandline actions [intermediate] Which ones?
+*. object-oriented concept [intermediate] OK
+*. classes [intermediate] OK
+*. object initialization (__init__) [intermediate] OK
+*. polymorphism [professional] OK
+*. encapsulation [intermediate] OK
+*. inheritance [intermediate] OK
+*. abstraction [intermediate] OK
+*. access level [intermediate] Test me.
+*. issubclass method [intermediate] OK
+*. property, static method [intermediate] Test me.
+*. magic methods [intermediate] Just concept and some examples.
+*. hashing and hashable [intermediate] OK
+*. decorators [intermediate] Just concept.
 *. regular expressions [intermediate]
 *. connecting to database [intermediate]
-*. class method [professional]
+*. class method [professional] OK
 *. multiple inheritance [professional]
 *. object creation (__new__) [professional]
 *. using orm [professional]
