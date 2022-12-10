@@ -238,6 +238,9 @@ class PlayList:
             print(f'Now: {track.name}: {track.song}')
 
 
+# Q: How can we automatically combine the name of instance and attribute of object?
+
+
 mt_1 = MusicTrack('Unforgiven', 360, 1987, 'Trash Metal', singers=['Metallica'])
 mt_2 = MusicTrack('Saaghi', 200, 1980, 'Persian Pop', singers=['Ahmad Azad'])
 print(mt_1)
