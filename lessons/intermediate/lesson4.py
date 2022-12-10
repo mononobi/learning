@@ -54,6 +54,8 @@ class Test:
 
         return False
 
+    # in every run hash() returns a new string?
+
     def __hash__(self):
         # when we override __eq__, we need to override __hash__
         # to unify the behavior on equality check.

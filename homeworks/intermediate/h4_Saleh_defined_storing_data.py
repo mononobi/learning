@@ -42,6 +42,10 @@ def store_new_user():
             print('Already registered. Remember that names are case sensitive.')
             store_info = False
             break
+        if new_user_info['name'].lower() == None:
+            print("The name can't be empty.")
+            store_info = False
+            break
 
     if store_info:
         users_info.append(new_user_info)
