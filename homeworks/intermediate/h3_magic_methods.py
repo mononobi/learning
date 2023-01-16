@@ -8,7 +8,9 @@
     - duration (in seconds)
     - singers (it's a list)
     - year
+
     # Q: what exactly is song meant to be?
+
     - song (it must be a random string representing the real sound stream)
 
 * music track should have these functionalities:
@@ -87,38 +89,34 @@ class MusicTrack:
 
         # Q : what is the good design to control the duplicate name, or hash? on init? or by handler?
 
-        self._name = name.title()
-        self._duration = duration
-        if singers is None:
-            singers = []
+        self.name = name.title()
+        self.duration = duration
         self._singers = singers
-        self._year = year
+        if self.singers is None:
+            self._singers = []
+        self.year = year
         self._song = song
-        self._genre = genre
+        self.genre = genre
 
-    @property
-    def name(self):
-        return self._name
+    # @property
+    # def name(self):
+    #     return self._name
 
-    @property
-    def duration(self):
-        return self._duration
+    # @property
+    # def duration(self):
+    #     return self._duration
 
-    @property
-    def year(self):
-        return self._year
+    # @property
+    # def year(self):
+    #     return self._year
+
+    # @property
+    # def genre(self):
+    #     return self._genre
 
     @property
     def song(self):
         return self._song
-
-    @property
-    def genre(self):
-        return self._genre
-
-    @property
-    def singers(self):
-        return self._singers
 
     @song.setter
     def song(self, content):
@@ -127,15 +125,18 @@ class MusicTrack:
         else:
             print('Bad song content')
 
-        # alt1:
-        # Q: who should catch this?
-        #   raise Exception('Bad song content!')
+    # alt1:
+    # Q: who should catch this on initialization?
+    #   raise Exception('Bad song content!')
 
-        # alt2:
-        # try:
-        #     self._song = content
-        # except Exception:
-        #     print('Bad song content!')
+    @property
+    def singers(self):
+        return self._singers
+
+    @singers.setter
+    def singers(self, list1):
+        if isinstance(list1, list):
+            self.singers = list1
 
     def __hash__(self):
         return hash(self.name + str(self.duration) + str(self.year) + self.song)
@@ -158,8 +159,9 @@ class MusicTrack:
     def __str__(self):
         singers = ''
         for singer in self.singers:
-            singers += singer + '-'
-        singers = singers[:-1]
+            singers += singer
+            if self.singers.index(singer) != len(self.singers)-1:
+                singers += ' - '
         printable = f'<{self.name} * {self.year} * {singers.upper()} * {self.duration}>'
         return printable
 
@@ -170,15 +172,15 @@ class PlayList:
     new_playlist_counter = 0
 
     def __init__(self, name, mt_list):
-        self._name = name
+        self.name = name
         self._tracks = list(dict.fromkeys(mt_list))
         self._duration = 0
         for mt in mt_list:
             self._duration += mt.duration
 
-    @property
-    def name(self):
-        return self._name
+    # @property
+    # def name(self):
+    #     return self._name
 
     @property
     def tracks(self):
@@ -189,7 +191,6 @@ class PlayList:
         return self._duration
 
     def __hash__(self):
-
         # Maybe this result is not unique.
         new_hash = 0
         for mt in self.tracks:
@@ -242,7 +243,7 @@ class PlayList:
 
 
 mt_1 = MusicTrack('Unforgiven', 360, 1987, 'Trash Metal', singers=['Metallica'])
-mt_2 = MusicTrack('Saaghi', 200, 1980, 'Persian Pop', singers=['Ahmad Azad'])
+mt_2 = MusicTrack('Saaghi', 200, 1980, 'Persian Pop', singers=['Ahmad Azad', 'Siroos'])
 print(mt_1)
 
 # prevents duplicate?

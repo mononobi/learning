@@ -36,7 +36,8 @@ different types of smartphones lose charge at different rates:
 Make different smartphone classes and make instances of each one and use
 the common interface to interact with each phone.
 """
-from abc import abstractmethod
+
+from abc import ABC
 
 class Smartphone:
     """"A class to define general attributes and methods for a modern smartphone."""
@@ -44,27 +45,16 @@ class Smartphone:
     # Let's see how many smartphones is built in the program:
     count_of_smartphone_models = 0
 
-    CHARGING_RATIO = None
-    DECHARGING_RATIO = None
-
     def __init__(self, brand, model):
         """Any concrete smartphone is created in turned off mode with 20% charge."""
 
         self._brand = brand
         self._model = model
         self._power_mode = False
-        if self.CHARGING_RATIO is None:
-            raise Exception('Charging Ratio Is Not Provided.')
-        self.__charging_ratio = self.CHARGING_RATIO
         # In percentage:
         self._battery_charge = 20
 
-        self.count_of_smartphone_models += 1
-
-    @abstractmethod
-    @property
-    def _charging_ratio(self):
-        raise NotImplementedError
+        Smartphone.count_of_smartphone_models += 1
 
     # Q: Should these super methods be "protected"?
     def turn_on(self):
@@ -81,25 +71,19 @@ class Smartphone:
         else:
             print('Already off.')
 
-    def charge(self, minutes):
+    def _charge(self, minutes):
         print(f'Charging for {minutes} minutes.')
         if self._battery_charge > 100:
             self._battery_charge = 100
 
-        self._battery_charge += self._increase_charge(minutes)
-        print(f'{self._brand} is being charged to {self._battery_charge}%')
-
     def get_charge(self):
         print(f'This {self._brand} has {self._battery_charge}% charge.')
 
-    def play(self, minutes):
+    def _play(self, minutes):
         print(f'Playing for {minutes} minutes.')
         if self._battery_charge <= 0:
             self._battery_charge = 0
             self.turn_off()
-
-        self._battery_charge -= self._decrease_charge(minutes)
-        print(f'{self._brand} is decharged to {self._battery_charge}%')
 
     @property
     def brand(self):
@@ -112,44 +96,68 @@ class Smartphone:
         print(f'This is {self._model} smartphone.')
 
     # For charge or discharge
-    def __calculate_charge(self, minutes, ratio):
-        return round(minutes * ratio)
-
-    def _increase_charge(self, minutes):
-        self.__calculate_charge(minutes, self.CHARGING_RATIO)
-
-    def _decrease_charge(self, minutes):
-        self.__calculate_charge(minutes, self.DECHARGING_RATIO)
+    @staticmethod
+    def calculate_charge(a, b):
+        return round(a * b)
 
 
 class Samsung(Smartphone):
     """Specific smartphone that has behavior in charging and playing"""
 
-    CHARGING_RATIO = 1
-    DECHARGING_RATIO = 0.5
-
     def __init__(self, model):
         super().__init__('Samsung', model)
+        self.__charging_rate = 1
+        self.__usage_rate = 0.5
+
+    # Q: Should it be charge or _charge?
+    def charge(self, minutes):
+        self._battery_charge += Smartphone.calculate_charge(minutes, self.__charging_rate)
+        # Before static method: round(minutes * self.__charging_rate)
+        super()._charge(minutes)
+        print(f'{self._brand} is being charged to {self._battery_charge}%')
+
+    def play(self, minutes):
+        self._battery_charge -= Smartphone.calculate_charge(minutes, self.__usage_rate)
+        super()._play(minutes)
+        print(f'{self._brand} is decharged to {self._battery_charge}%')
 
 
 class Iphone(Smartphone):
     """Specific smartphone that has behavior in charging and playing"""
 
-    CHARGING_RATIO = 0.67
-    DECHARGING_RATIO = 0.75
-
     def __init__(self, model):
         super().__init__('Iphone', model)
+        self._charging_rate = 0.67
+        self._usage_rate = 0.75
+
+    def charge(self, minutes):
+        self._battery_charge += Smartphone.calculate_charge(minutes, self._charging_rate)
+        super()._charge(minutes)
+        print(f'{self._brand} is being charged to {self._battery_charge}%')
+
+    def play(self, minutes):
+        self._battery_charge -= Smartphone.calculate_charge(minutes, self._usage_rate)
+        super()._play(minutes)
+        print(f'{self._brand} is decharged to {self._battery_charge}%')
 
 
 class Oneplus(Smartphone):
     """Specific smartphone that has behavior in charging and playing"""
 
-    CHARGING_RATIO = 0.83
-    DECHARGING_RATIO = 0.6
-
     def __init__(self, model):
         super().__init__('Oneplus', model)
+        self._charging_rate = 0.83
+        self._usage_rate = 0.6
+
+    def charge(self, minutes):
+        self._battery_charge += Smartphone.calculate_charge(minutes, self._charging_rate)
+        super()._charge(minutes)
+        print(f'{self._brand} is being charged to {self._battery_charge}%')
+
+    def play(self, minutes):
+        self._battery_charge -= Smartphone.calculate_charge(minutes, self._usage_rate)
+        super()._play(minutes)
+        print(f'{self._brand} is decharged to {self._battery_charge}%')
 
 
 # Demonstrate:
@@ -170,7 +178,7 @@ for phone in phones:
     phone.turn_off()
     print('\n')
 
-#print(Smartphone.count_of_smartphone_models)
+print(Smartphone.count_of_smartphone_models)
 
 
 # phone1 = Smartphone('samsung', 's10')
@@ -180,7 +188,3 @@ for phone in phones:
 # phone1.get_charge()
 # phone1.turn_off()
 # print('\n')
-# Smartphone.CHARGING_RATIO
-# Samsung.CHARGING_RATIO
-# phone = Samsung()
-# phone.CHARGING_RATIO

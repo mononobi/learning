@@ -10,10 +10,10 @@
 *. access level [intermediate] Test me.
 *. issubclass method [intermediate] OK
 *. property, static method [intermediate] Test me.
-*. magic methods [intermediate] Just concept and some examples.
+*. magic methods [intermediate] Concept and some methods.
 *. hashing and hashable [intermediate] OK
 *. decorators [intermediate] Just concept.
-*. regular expressions [intermediate]
+*. regular expressions [intermediate] Just concept.
 *. connecting to database [intermediate]
 *. class method [professional] OK
 *. multiple inheritance [professional]
