@@ -83,7 +83,7 @@ happy coding :)
 class MusicTrack:
     """ A class that represents a music track that has some functionalities."""
 
-    def __init__(self, name, duration, year, genre, singers=None, song=''):
+    def __init__(self, name: str, duration, year, genre, singers=None, song=''):
 
         # TODO: check for input argument type match
 
@@ -91,13 +91,20 @@ class MusicTrack:
 
         self.name = name.title()
         self.duration = duration
-        self._singers = singers
-        if self.singers is None:
-            self._singers = []
+        # self._singers = singers
+        # if self.singers is None:
+        #     self._singers = []
+        self.singers = singers
         self.year = year
-        self._song = song
+        self.song = song
         self.genre = genre
+        self._test = None
 
+    def test(self, value):
+        self._test = value
+
+    def get_test(self):
+        return self._test
     # @property
     # def name(self):
     #     return self._name
@@ -136,47 +143,42 @@ class MusicTrack:
     @singers.setter
     def singers(self, list1):
         if isinstance(list1, list):
-            self.singers = list1
+            self._singers = list1
+        else:
+            self._singers = []
 
     def __hash__(self):
-        return hash(self.name + str(self.duration) + str(self.year) + self.song)
+        return hash(f'{self.name}{self.duration}{self.year}{self.song}')
 
     # why in lesson mono made other comparisons?
     def __eq__(self, other):
-        if hash(self) == hash(other):
-            return True
-        else:
+        if not isinstance(other, MusicTrack):
             return False
+
+        return hash(self) == hash(other)
 
     def __add__(self, other):
         if isinstance(other, MusicTrack):
-            new_track_list = [self, other]
-            PlayList.new_playlist_counter += 1
-            return PlayList(f'new playlist {PlayList.new_playlist_counter}', new_track_list)
+            return PlayList(self, other)
         else:
-            raise TypeError
+            raise TypeError()
 
     def __str__(self):
-        singers = ''
-        for singer in self.singers:
-            singers += singer
-            if self.singers.index(singer) != len(self.singers)-1:
-                singers += ' - '
-        printable = f'<{self.name} * {self.year} * {singers.upper()} * {self.duration}>'
-        return printable
+        singers = ' - '.join(self.singers)
+        return f'<{self.name} * {self.year} * {singers} * {self.duration}>'
 
 
 class PlayList:
     """A class for playlist of one or more MusicTracks."""
 
-    new_playlist_counter = 0
-
-    def __init__(self, name, mt_list):
+    def __init__(self, *music_track, name=None):
+        if not name:
+            name = f'Unknown Playlist'
         self.name = name
-        self._tracks = list(dict.fromkeys(mt_list))
+        self._tracks = list(music_track)
         self._duration = 0
-        for mt in mt_list:
-            self._duration += mt.duration
+        for track in music_track:
+            self._duration += track.duration
 
     # @property
     # def name(self):
@@ -192,46 +194,35 @@ class PlayList:
 
     def __hash__(self):
         # Maybe this result is not unique.
-        new_hash = 0
-        for mt in self.tracks:
-            new_hash += mt.__hash__()
-        return new_hash
+        return hash(tuple(self.tracks))
 
     def __eq__(self, other):
-        if hash(self.tracks) == hash(other):
-            return True
-        else:
+        if not isinstance(other, PlayList):
             return False
 
+        return hash(self) == hash(other)
+
     def __str__(self):
-        printable = ''
-        for mt in self.tracks:
-            printable += mt.__str__() + '\n'
-            # If I wanted to make a single string?
-        return printable
+        return '\n'.join([str(item) for item in self.tracks])
 
     def __add__(self, other):
-        return self.__return_addition(other)
-
-    def __return_addition(self, other):
-        """facilitator function to use in add functions in PlatList class."""
+        tracks = []
+        tracks.extend(self.tracks)
         if isinstance(other, PlayList):
-            new_tracklist = self.tracks + other.tracks
+            tracks.extend(other.tracks)
             # Q: why this does not work:
             # new_tracklist = self.tracks.extend(other.tracks)
         elif isinstance(other, MusicTrack):
-            new_tracklist = self.tracks + [other]
+            tracks.append(other)
         else:
             # todo maybe better type of Exception can be raised. search
-            raise TypeError
-        # Q: this does not work on more than one "+"
-        PlayList.new_playlist_counter += 1
-        return PlayList(f'new playlist{PlayList.new_playlist_counter}', new_tracklist)
+            raise TypeError()
+
+        return PlayList(*tracks)
 
     def add_new(self, track):
         # Q: Is it ok?
-        new_obj = self.__return_addition(track)
-        self.__dict__.update(new_obj.__dict__)
+        self.tracks.append(track)
 
     def play(self):
         print(f'From playlist {self.name} playing: ')
