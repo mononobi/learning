@@ -11,10 +11,10 @@ we have a list of first names and another list of last names.
 
 # Q: why a method? isn't it a function? Be cool
 
-first_names = ['azin', 'tarek', 'sheida', 'mohamad',
-               'shiva', 'faeze', 'saleh', 'andy', 'reza', 'abi', 'azin']
+first_names = ['nicole', 'sara', 'david', 'jack',
+               'steve', 'joshua', 'oliver', 'andy', 'shelly', 'alex', 'christine']
 
-last_names = ['kamali', 'krohn', 'nobakht', 'nobakht', 'roostaei', 'fallah', 'noorian']
+last_names = ['kidman', 'kimich', 'middleton', 'scholz', 'biden', 'price', 'beckham']
 
 
 # 1st assignment:
