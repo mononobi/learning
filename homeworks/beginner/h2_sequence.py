@@ -9,10 +9,10 @@ we have a list of first names and another list of last names.
 3. write a method to sort the first_names ascending and last_names descending.
 """
 
-first_names = ['azin', 'tarek', 'sheida', 'mohamad',
-               'shiva', 'faeze', 'saleh', 'andy', 'reza', 'abi', 'azin']
+first_names = ['sara', 'joshua', 'shelly', 'david',
+               'tilda', 'nicole', 'jack', 'andy', 'joseph', 'zelda', 'price']
 
-last_names = ['kamali', 'krohn', 'nobakht', 'nobakht', 'roostaei', 'fallah', 'noorian']
+last_names = ['otto', 'bellington', 'laswell', 'larson', 'cherry', 'kidman', 'de niro']
 
 ############################### FIRST TRY #############################################################################
 ###### Excersice 1 ######
