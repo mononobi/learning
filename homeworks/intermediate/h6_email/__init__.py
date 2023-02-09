@@ -19,4 +19,5 @@ implement an app which have the following features using the mentioned `EmailCli
 - your code should be implemented using object-oriented design.
 - the template of `senders.txt`, `targets.txt` and `mail.txt` files are
   clarified inside each of them.
+- you can add support for any email provider by adding its configs in `settings.py` file.
 """
