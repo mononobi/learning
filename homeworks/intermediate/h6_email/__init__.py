@@ -10,12 +10,8 @@ implement an app which have the following features using the mentioned `EmailCli
 1. Read email senders from a file named `senders.txt`.
 2. Read email targets from a file named `targets.txt`.
 3. Read email subject and body from a file named `mail.txt`.
-4. Read different email server configs from a file named `settings.py`.
-5. Sending emails from single/multiple senders to single/multiple targets.
-6. Adding support for any email provider just by adding its respective
-   configs into `settings.py`.
-7. Sending emails from senders with different email providers in a single operation.
-8. Automatically removing duplicate senders or targets.
+4. Sending emails from single/multiple senders to single/multiple targets.
+5. Automatically removing duplicate senders or targets.
 
 **NOTE**
 
