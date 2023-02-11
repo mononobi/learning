@@ -89,9 +89,9 @@ class MusicTrack:
 
         self._name = name.title()
         self._duration = duration
-        if singers is None:
-            singers = []
         self._singers = singers
+        if self.singers is None:
+            self.singers = []
         self._year = year
         self._song = song
         self._genre = genre
@@ -126,6 +126,12 @@ class MusicTrack:
             self._song = content
         else:
             print('Bad song content')
+
+    @singers.setter
+    def singers(self, list1):
+        if isinstance(list1, list):
+            self.singers = list1
+
 
         # alt1:
         # Q: who should catch this?
@@ -273,3 +279,4 @@ pl_3.play()
 
 mt_3.song = 'Reveal, when you ...'
 pl_3.play()
+
