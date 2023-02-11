@@ -52,8 +52,8 @@ for char in value:
     print(char)
 
 # string concatenation:
-a = 'Sheida'
-b = 'Nobakht'
+a = 'Shelly'
+b = 'Robinson'
 
 fullname = a + ' ' + b
 print('FULLNAME:', fullname)

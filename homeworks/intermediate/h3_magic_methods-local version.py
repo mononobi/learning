@@ -89,6 +89,16 @@ class MusicTrack:
 
         # Q : what is the good design to control the duplicate name, or hash? on init? or by handler?
 
+<<<<<<< HEAD
+        self._name = name.title()
+        self._duration = duration
+        self._singers = singers
+        if self.singers is None:
+            self.singers = []
+        self._year = year
+        self._song = song
+        self._genre = genre
+=======
         self.name = name.title()
         self.duration = duration
         # self._singers = singers
@@ -99,6 +109,7 @@ class MusicTrack:
         self.song = song
         self.genre = genre
         self._test = None
+>>>>>>> origin/learning-sn
 
     def test(self, value):
         self._test = value
@@ -132,9 +143,21 @@ class MusicTrack:
         else:
             print('Bad song content')
 
+<<<<<<< HEAD
+    @singers.setter
+    def singers(self, list1):
+        if isinstance(list1, list):
+            self.singers = list1
+
+
+        # alt1:
+        # Q: who should catch this?
+        #   raise Exception('Bad song content!')
+=======
     # alt1:
     # Q: who should catch this on initialization?
     #   raise Exception('Bad song content!')
+>>>>>>> origin/learning-sn
 
     @property
     def singers(self):
@@ -265,3 +288,7 @@ pl_3.play()
 
 mt_3.song = 'Reveal, when you ...'
 pl_3.play()
+<<<<<<< HEAD
+
+=======
+>>>>>>> origin/learning-sn
