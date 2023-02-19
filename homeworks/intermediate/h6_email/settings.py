@@ -13,13 +13,25 @@ _YAHOO = {
     'port': 587
 }
 
+
+_LIVE = {
+    'host': 'smtp.live.com',
+    'port': 587
+}
+
+_PROTON = {
+    'host': 'smtp.proton.com',
+    'port': 587
+}
 # you should add each email provider you want to support in this variable.
 # the key of each entry should be the url after the `@` in email address:
 
 SERVERS = {
     'gmail.com': _GOOGLE,
     'yahoo.com': _YAHOO,
-    'ymail.com': _YAHOO
+    'ymail.com': _YAHOO,
+    'live.com': _LIVE,
+    'protonmail.com': _PROTON
 }
 
 # separator between email and name or password in senders and targets files:
