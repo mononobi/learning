@@ -1,0 +1,9 @@
+{Subject}
+
+{Title}
+
+It could have as many lines as you want with empty lines in between.
+Only the first line of this file will be considered as subject.
+The name of each target should be replaced with X at runtime.
+
+Have a nice day

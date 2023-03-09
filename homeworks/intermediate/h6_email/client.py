@@ -16,9 +16,9 @@ I need an app to prepare sending materials then send it using EmailClient class:
 
 
 Q: I had problem choosing which design to follow: ??
-- use another class to write my app called EmailSender: I didn't choose this because it would be multiple 
+- use another class to write my app called EmailSender: I didn't choose this because it would be multiple
     instantiations and inter object calls maybe?
-- use an extension of Emailclient: I didn't choose this because there is no other version to this class by Mono.
+- use an extension of EmailClient: I didn't choose this because there is no other version to this class by Mono.
 - modifying this EmailClient: I use this because it would be simpler than extension.
 """
 
@@ -58,7 +58,7 @@ class EmailClient:
         if len(parts) != 2:
             raise ValueError(f'Invalid sender address [{sender_address}]')
 
-        # Q: not better to raise error silently??
+        # Q: not better to raise error silently??  not here, in the manager
 
         server = parts[1]
         if not server:
