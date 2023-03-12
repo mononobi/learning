@@ -13,7 +13,7 @@ consisting of some distinct classes to follow OOP paradigm.
 - USE VALIDATION WHEREVER YOU DON'T KNOW DATA. EMPTY LINES, NON-EMAILS, INPUTS, ...
 """
 
-from client import EmailClient
+from homeworks.intermediate.h6_email_2.client import EmailClient
 
 
 class PathException(Exception):

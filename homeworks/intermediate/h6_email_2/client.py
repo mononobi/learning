@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-from homeworks.intermediate.h6_email.settings import SERVERS
+from homeworks.intermediate.h6_email_2.settings import SERVERS
 
 
 class EmailClient:

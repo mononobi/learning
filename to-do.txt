@@ -7,10 +7,10 @@
 *. encapsulation [intermediate] OK
 *. inheritance [intermediate] OK
 *. abstraction [intermediate] OK
-*. access level [intermediate] Test me.
+*. access level [intermediate] Test me. OK
 *. issubclass method [intermediate] OK
-*. property, static method [intermediate] Test me.
-*. magic methods [intermediate] Concept and some methods.
+*. property, static method [intermediate] Test me. OK
+*. magic methods [intermediate] Concept and some methods. OK
 *. hashing and hashable [intermediate] OK
 *. decorators [intermediate] Just concept.
 *. regular expressions [intermediate] Just concept.
