@@ -1,0 +1,5 @@
+sender_email_1@gmail.com
+sender_email_2@yahoo.com[***]password_2
+sender_email_3@live.com[***]password_3
+sender_email_4@gmail.com[***]password_4
+sender_email_5@protonmail.com[***]password_5
