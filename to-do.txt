@@ -1,5 +1,5 @@
 *. running application from command line [intermediate] OK
-*. commandline actions [intermediate] Which ones?
+*. commandline actions [intermediate] Which ones? OK
 *. object-oriented concept [intermediate] OK
 *. classes [intermediate] OK
 *. object initialization (__init__) [intermediate] OK
@@ -15,7 +15,7 @@
 *. decorators [intermediate] Just concept.
 *. regular expressions [intermediate] Just concept.
 *. connecting to database [intermediate]
-*. class method [professional] OK
+*. class method [professional]
 *. multiple inheritance [professional]
 *. object creation (__new__) [professional]
 *. using orm [professional]
