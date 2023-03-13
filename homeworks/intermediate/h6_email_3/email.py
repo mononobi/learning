@@ -32,46 +32,11 @@ class Extractor:
             self._content_lines = file.readlines()
 
 
-class TargetsExtractor(Extractor):
-    """Using Extractor class it processes email list from targets file."""
-    def __init__(self, path):
-        super().__init__(path)
-        # Q: Is it better to use super(TargetsExtractor, self).__init__()??
-        self._noduplicate_emails = []
-        self.read_file()
-        self.get_emails()
-
-    def get_emails(self):
-        """Changes lines to a list of dictionaries for readability, Also Removes duplicate emails:"""
-        added_emails = []
-        for line in self._content_lines:
-            split_line = dict()
-            try:
-                split_line['email'], split_line['title'] = line.split('[***]')
-            # Q: Is it better not to duplicate two classes and use below "if" or mediator EmailExtractor class?
-                # if 'target' in self._path:
-                #     split_line['email'], split_line['title'] = line.split('[***]')
-                # elif 'sender' in self._path:
-                #     split_line['email'], split_line['password'] = line.split('[***]')
-                # else:
-                #     raise PathException('Path not containing "target" or "sender" keyword?')
-            except ValueError:
-                print('At least one line not having valid email format.')
-                continue
-            if split_line['email'] not in added_emails:
-                self._noduplicate_emails.append(split_line)
-                added_emails.append(split_line['email'])
-
-    @property
-    def noduplicate_emails(self):
-        return self._noduplicate_emails
-
-
 class SendersExtractor(Extractor):
-    """Using Extractor class it processes email list from senders file."""
+    """Using Extractor class it processes email list from file."""
     def __init__(self, path):
         super().__init__(path)
-        # Q: Is it better to use super(TargetsExtractor, self).__init__()??
+        # Q: Is it better to use super(SendersExtractor, self).__init__()??
         self._noduplicate_emails = []
         self.read_file()
         self.get_emails()
@@ -86,6 +51,7 @@ class SendersExtractor(Extractor):
             except ValueError:
                 print('At least one line not having valid email format.')
                 continue
+
             if split_line['email'] not in added_emails:
                 self._noduplicate_emails.append(split_line)
                 added_emails.append(split_line['email'])
@@ -93,6 +59,25 @@ class SendersExtractor(Extractor):
     @property
     def noduplicate_emails(self):
         return self._noduplicate_emails
+
+
+class TargetsExtractor(SendersExtractor):
+    """It overrides SendersExtractor to change dict key from password to title to represent it provides target
+    detail."""
+    def get_emails(self):
+        """Changes lines to a list of dictionaries for readability, Also Removes duplicate emails:"""
+        added_emails = []
+        for line in self._content_lines:
+            split_line = dict()
+            try:
+                split_line['email'], split_line['title'] = line.split('[***]')
+            except ValueError:
+                print('At least one line not having valid email format.')
+                continue
+
+            if split_line['email'] not in added_emails:
+                self._noduplicate_emails.append(split_line)
+                added_emails.append(split_line['email'])
 
 
 class EmailBodyExtractor(Extractor):
@@ -134,12 +119,11 @@ class Email:
             email1 = EmailClient()
             for sender in self.senders.noduplicate_emails:
                 for target in self.targets.noduplicate_emails:
-                    mail_title = target['title']
                     email1.send(sender['email'],
                                 sender['password'],
                                 target['email'],
                                 self.mail_body.mail_subject,
-                                self.mail_body.email_body.format(Title=mail_title))
+                                self.mail_body.email_body.format(Title=target['title']))
 
         # Q: If we have multiple ValueErrors, how can we distinguish on catches?
         except (ValueError, PathException, KeyError) as error_msg:
@@ -148,7 +132,3 @@ class Email:
 
 email = Email()
 
-# targets = EmailExtractor('files/targets.txt')
-# print(targets.get_emails())
-# mail = EmailBodyExtractor('files/mail.txt')
-# mail.prepare_email()
