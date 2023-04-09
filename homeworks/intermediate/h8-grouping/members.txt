@@ -1,0 +1,17 @@
+name0
+name0[***][***]
+name1[***]1[***]aaa
+name1[***]1[***]aaa
+
+name1[***]1[***]bbb
+name2[***]1[***]aaa
+name3[***]2[***]aaa
+name4[***]1[***]bbb
+name5[***]1[***]aaa
+name6[***]2[***]bbb
+name7[***]6[***]aaa
+name8[***]3[***]aaa
+name9[***]4[***]bbb
+name10[***]5[***]aaa
+name11[***]6[***]bbb
+name12[***]3[***]ccc
