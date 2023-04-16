@@ -18,6 +18,7 @@ class Extractor:
         added_members = []
         for line in content_lines:
             split_line = dict()
+            line = line.strip()
             try:
                 split_line['name'], split_line['restricted_level'], split_line['optional_level'] = line.split('[***]')
             except ValueError:
@@ -159,7 +160,7 @@ class Group:
             if member['optional_level'] not in self.existing_optional_levels:
                 self.added_members.append(member)
                 self.existing_restricted_levels.append(member['restricted_level'])
-                self.existing_restricted_levels.append(member['optional_level'])
+                self.existing_optional_levels.append(member['optional_level'])
                 return 1
             else:
                 return 2
@@ -168,7 +169,7 @@ class Group:
 
     def force_add_to_group(self, member):
         """If grouping module decides that no better assignment is possible, it adds member by this method."""
-        if len(self.added_members) <= self.number_of_group_members:
+        if len(self.added_members) < self.number_of_group_members:
             self.added_members.append(member)
             self.existing_restricted_levels.append(member['restricted_level'])
             self.existing_restricted_levels.append(member['optional_level'])
